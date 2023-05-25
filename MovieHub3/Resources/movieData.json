@@ -1,0 +1,36 @@
+[
+    {
+        "id": 0,
+        "title": "John Wick 3",
+        "score": 4.6,
+        "genres": ["Action", "Crime", "Thriller"],
+        "rating": "R",
+        "synopsis": "In this third installment of the adrenaline-fueled action franchise, super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting",
+        "cast": {
+            "Keanu Reeves": "John Wick",
+            "Halle Berry": "Sofia",
+            "Laurence Fishburne": "Bowery King",
+            "Mark Dacascos": "Zero"
+        },
+        "duration": 130,
+        "imageName": "johnwickasdfadfs",
+        "category": "Now Showing"
+    },
+    {
+        "id": 1,
+        "title": "John Wick 2",
+        "score": 3.6,
+        "genres": ["Action", "Crime", "Thriller"],
+        "rating": "R",
+        "synopsis": "In this third installment of the adrenaline-fueled action franchise, super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting",
+        "cast": {
+            "Keanu Reeves": "John Wick",
+            "Halle Berry": "Sofia",
+            "Laurence Fishburne": "Bowery King",
+            "Mark Dacascos": "Zero"
+        },
+        "duration": 130,
+        "imageName": "johnwick3",
+        "category": "Coming Soon"
+    }
+]

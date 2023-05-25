@@ -8,13 +8,14 @@
 import SwiftUI
 
 @main
-struct MovieHub3App: App {
-    let persistenceController = PersistenceController.shared
+struct MovieHub2App: App {
+    @StateObject private var modelData = ModelData()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(modelData)
+            
         }
     }
 }
