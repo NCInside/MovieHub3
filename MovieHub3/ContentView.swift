@@ -20,16 +20,21 @@ struct ContentView: View {
     }
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(red: 217/255.0, green: 37/255.0, blue: 29/255.0, alpha: 1)
-        UITabBar.appearance().unselectedItemTintColor = .white
+        let standardAppearance = UITabBarAppearance()
+        standardAppearance.backgroundColor = UIColor(red: 217/255.0, green: 37/255.0, blue: 29/255.0, alpha: 1)
+        standardAppearance.stackedLayoutAppearance.normal.iconColor = .white
+        standardAppearance.inlineLayoutAppearance.normal.iconColor = .white
+        UITabBar.appearance().standardAppearance = standardAppearance
+        UITabBar.appearance().scrollEdgeAppearance = standardAppearance
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        UISegmentedControl.appearance().backgroundColor = .red.withAlphaComponent(0.15)
-        UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-        UISegmentedControl.appearance().selectedSegmentTintColor = .red
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
+        let segmentedAppearance = UISegmentedControl.appearance()
+        segmentedAppearance.backgroundColor = .red.withAlphaComponent(0.15)
+        segmentedAppearance.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        segmentedAppearance.selectedSegmentTintColor = .red
+        segmentedAppearance.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        segmentedAppearance.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
     }
 
     var body: some View {

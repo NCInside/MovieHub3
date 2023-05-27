@@ -10,7 +10,12 @@ import SwiftUI
 struct MovieDetail: View {
     
     var movie: Movie
-    @StateObject private var viewModel = MovieDetailViewModel()
+    @StateObject private var viewModel: MovieDetailViewModel
+    
+    init(movie: Movie) {
+        self.movie = movie
+        self._viewModel = StateObject(wrappedValue: MovieDetailViewModel(id: movie.id))
+    }
     
     var body: some View {
         ScrollView {
@@ -53,14 +58,16 @@ struct MovieDetail: View {
                     }
                 }
                 .padding(.vertical, 8)
-                Picker("Section", selection: $viewModel.selectedSection) {
-                    ForEach(MovieDetailViewModel.MovieSection.allCases) {section in
-                        Text(section.rawValue).tag(section)
+                if (movie.category != Movie.Category.comingSoon) {
+                    Picker("Section", selection: $viewModel.selectedSection) {
+                        ForEach(MovieDetailViewModel.MovieSection.allCases) {section in
+                            Text(section.rawValue).tag(section)
+                        }
                     }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 16)
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal, 10)
-                .padding(.bottom, 16)
                 switch viewModel.selectedSection {
                 case .detail:
                     Detail(movie: movie)
@@ -69,13 +76,10 @@ struct MovieDetail: View {
                     Reviews()
                         .padding(.horizontal, 10)
                 case .showtime:
-                    Showtime()
+                    Showtime(showtimes: viewModel.showtimes)
                         .padding(.horizontal, 10)
                 }
             }
-            .frame(
-                maxWidth: .infinity
-            )
         }
         .background(.black)
     }

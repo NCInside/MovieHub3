@@ -10,6 +10,9 @@ import Combine
 
 final class ModelData: ObservableObject {
     @Published var movies: [Movie] = load("movieData.json")
+    @Published var theaters: [Theater] = load("theaterData.json")
+    @Published var theaterMovies: [TheaterMovie] = load("theaterMovieData.json")
+    @Published var movieTimes: [MovieTime] = load("timeData.json")
     
     var categories: [String: [Movie]] {
         Dictionary(

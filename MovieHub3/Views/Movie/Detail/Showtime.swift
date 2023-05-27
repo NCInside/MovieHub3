@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct Showtime: View {
+    
+    var showtimes: [Theater: [MovieTime]]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .trailing) {
+            ForEach(Array(showtimes.keys), id: \.self) {key in
+                ShowtimeRow(showtime: (theater: key, movietimes: showtimes[key]!))
+            }
+        }
     }
 }
 

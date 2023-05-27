@@ -15,7 +15,7 @@ struct MovieCard: View {
         VStack(alignment: .leading) {
             movie.image
                 .resizable()
-                .frame(minHeight: 270.0)
+                .frame(minHeight: 270.0, maxHeight: 270.0)
             HStack(spacing: 3) {
                 ForEach (0..<(Int(movie.score)+1), id: \.self) {_ in
                     Image(systemName: "star.fill")
