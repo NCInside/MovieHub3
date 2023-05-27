@@ -1,0 +1,127 @@
+[
+    {
+        "id": 0,
+        "movieID": 0,
+        "theaterID": 0
+    },
+    {
+        "id": 1,
+        "movieID": 1,
+        "theaterID": 1
+    },
+    {
+        "id": 2,
+        "movieID": 2,
+        "theaterID": 2
+    },
+    {
+        "id": 3,
+        "movieID": 4,
+        "theaterID": 3
+    },
+    {
+        "id": 4,
+        "movieID": 0,
+        "theaterID": 4
+    },
+    {
+        "id": 5,
+        "movieID": 1,
+        "theaterID": 5
+    },
+    {
+        "id": 6,
+        "movieID": 2,
+        "theaterID": 6
+    },
+    {
+        "id": 7,
+        "movieID": 4,
+        "theaterID": 7
+    },
+    {
+        "id": 8,
+        "movieID": 0,
+        "theaterID": 8
+    },
+    {
+        "id": 9,
+        "movieID": 1,
+        "theaterID": 9
+    },
+    {
+        "id": 10,
+        "movieID": 2,
+        "theaterID": 0
+    },
+    {
+        "id": 11,
+        "movieID": 4,
+        "theaterID": 1
+    },
+    {
+        "id": 12,
+        "movieID": 0,
+        "theaterID": 2
+    },
+    {
+        "id": 13,
+        "movieID": 1,
+        "theaterID": 3
+    },
+    {
+        "id": 14,
+        "movieID": 2,
+        "theaterID": 4
+    },
+    {
+        "id": 15,
+        "movieID": 4,
+        "theaterID": 5
+    },
+    {
+        "id": 16,
+        "movieID": 0,
+        "theaterID": 6
+    },
+    {
+        "id": 17,
+        "movieID": 1,
+        "theaterID": 7
+    },
+    {
+        "id": 18,
+        "movieID": 2,
+        "theaterID": 8
+    },
+    {
+        "id": 19,
+        "movieID": 4,
+        "theaterID": 9
+    },
+    {
+        "id": 20,
+        "movieID": 0,
+        "theaterID": 0
+    },
+    {
+        "id": 21,
+        "movieID": 1,
+        "theaterID": 1
+    },
+    {
+        "id": 22,
+        "movieID": 2,
+        "theaterID": 2
+    },
+    {
+        "id": 23,
+        "movieID": 4,
+        "theaterID": 3
+    },
+    {
+        "id": 24,
+        "movieID": 0,
+        "theaterID": 4
+    }
+]
