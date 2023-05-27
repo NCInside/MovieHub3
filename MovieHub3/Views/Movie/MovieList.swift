@@ -9,27 +9,12 @@ import SwiftUI
 
 struct MovieList: View {
     
-    @EnvironmentObject var modelData: ModelData
-    @State private var searchText = ""
-    @State private var selectedCategory: MovieCategory = .nowShowing
-    
-    var movies: [Movie] {
-        modelData.movies.filter { movie in
-            selectedCategory.rawValue == movie.category.rawValue && (movie.title.lowercased().contains(searchText.lowercased()) || searchText == "")
-        }
-    }
+    @StateObject private var viewModel = MovieViewModel()
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    
-    enum MovieCategory: String, CaseIterable, Identifiable {
-        case nowShowing = "Now Showing"
-        case comingSoon = "Coming Soon"
-        
-        var id: MovieCategory { self }
-    }
     
     init() {
         let searchBarAppearance = UISearchBar.appearance()
@@ -42,15 +27,15 @@ struct MovieList: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                Picker("Category", selection: $selectedCategory) {
-                    ForEach(MovieCategory.allCases) {category in
+                Picker("Category", selection: $viewModel.selectedCategory) {
+                    ForEach(MovieViewModel.MovieCategory.allCases) {category in
                         Text(category.rawValue).tag(category)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal, 10)
                 LazyVGrid(columns: columns) {
-                    ForEach(movies) {movie in
+                    ForEach(viewModel.movies) {movie in
                         NavigationLink {
                             MovieDetail(movie: movie)
                         } label: {
@@ -65,7 +50,8 @@ struct MovieList: View {
             .navigationTitle("Movies")
             .background(Color.black)
         }
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for Movies")
+        .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for Movies")
+        .accentColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
     }
 }
 
