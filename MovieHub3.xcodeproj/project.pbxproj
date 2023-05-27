@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0418F49A2A21ADB9006D5B50 /* theaterData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F4992A21ADB9006D5B50 /* theaterData.json */; };
+		0418F49C2A21AFD7006D5B50 /* theaterMovieData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */; };
+		0418F49E2A21BEA2006D5B50 /* timeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F49D2A21BEA2006D5B50 /* timeData.json */; };
+		0418F4A22A21D06F006D5B50 /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A12A21D06F006D5B50 /* Theater.swift */; };
+		0418F4A42A21D11C006D5B50 /* TheaterMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A32A21D11C006D5B50 /* TheaterMovie.swift */; };
+		0418F4A62A21D176006D5B50 /* MovieTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A52A21D176006D5B50 /* MovieTime.swift */; };
 		04BDD1342A2045EA00C16D65 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1332A2045EA00C16D65 /* Detail.swift */; };
 		04BDD1362A2045F400C16D65 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1352A2045F400C16D65 /* Reviews.swift */; };
 		04BDD1382A20460400C16D65 /* Showtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1372A20460400C16D65 /* Showtime.swift */; };
@@ -36,6 +42,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0418F4992A21ADB9006D5B50 /* theaterData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = theaterData.json; sourceTree = "<group>"; };
+		0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = theaterMovieData.json; sourceTree = "<group>"; };
+		0418F49D2A21BEA2006D5B50 /* timeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = timeData.json; sourceTree = "<group>"; };
+		0418F4A12A21D06F006D5B50 /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
+		0418F4A32A21D11C006D5B50 /* TheaterMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterMovie.swift; sourceTree = "<group>"; };
+		0418F4A52A21D176006D5B50 /* MovieTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTime.swift; sourceTree = "<group>"; };
 		04BDD1332A2045EA00C16D65 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		04BDD1352A2045F400C16D65 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		04BDD1372A20460400C16D65 /* Showtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Showtime.swift; sourceTree = "<group>"; };
@@ -119,6 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				04D181392A1EF563007989D8 /* movieData.json */,
+				0418F4992A21ADB9006D5B50 /* theaterData.json */,
+				0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */,
+				0418F49D2A21BEA2006D5B50 /* timeData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -128,6 +143,9 @@
 			children = (
 				04D181362A1EF543007989D8 /* ModelData.swift */,
 				04D181352A1EF543007989D8 /* Movie.swift */,
+				0418F4A12A21D06F006D5B50 /* Theater.swift */,
+				0418F4A32A21D11C006D5B50 /* TheaterMovie.swift */,
+				0418F4A52A21D176006D5B50 /* MovieTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,8 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D181212A1EF43D007989D8 /* Preview Assets.xcassets in Resources */,
+				0418F49C2A21AFD7006D5B50 /* theaterMovieData.json in Resources */,
 				04D1811E2A1EF43D007989D8 /* Assets.xcassets in Resources */,
 				04D1813A2A1EF563007989D8 /* movieData.json in Resources */,
+				0418F49A2A21ADB9006D5B50 /* theaterData.json in Resources */,
+				0418F49E2A21BEA2006D5B50 /* timeData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,10 +298,12 @@
 				04D181442A1EF588007989D8 /* CinemaDetail.swift in Sources */,
 				04D1814E2A1EF5AE007989D8 /* OnboardingView1.swift in Sources */,
 				04D1814A2A1EF5A3007989D8 /* UserController.swift in Sources */,
+				0418F4A62A21D176006D5B50 /* MovieTime.swift in Sources */,
 				04F09E7E2A20E1D700E8F263 /* ShowtimeRow.swift in Sources */,
 				04D1811C2A1EF43C007989D8 /* ContentView.swift in Sources */,
 				04D181402A1EF579007989D8 /* MovieDetail.swift in Sources */,
 				04F09E7C2A20E09400E8F263 /* ReviewRow.swift in Sources */,
+				0418F4A42A21D11C006D5B50 /* TheaterMovie.swift in Sources */,
 				04D1811A2A1EF43C007989D8 /* MovieHub3App.swift in Sources */,
 				04D181502A1EF5AE007989D8 /* OnboardingView2.swift in Sources */,
 				04D181482A1EF5A3007989D8 /* ProfileMenu.swift in Sources */,
@@ -289,6 +312,7 @@
 				04D181432A1EF588007989D8 /* MapView.swift in Sources */,
 				04F09E832A2103E400E8F263 /* MovieDetailViewModel.swift in Sources */,
 				04F09E802A20EF7400E8F263 /* MovieViewModel.swift in Sources */,
+				0418F4A22A21D06F006D5B50 /* Theater.swift in Sources */,
 				04D181382A1EF543007989D8 /* ModelData.swift in Sources */,
 				04D1813E2A1EF579007989D8 /* MovieList.swift in Sources */,
 			);

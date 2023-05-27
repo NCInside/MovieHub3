@@ -18,19 +18,87 @@
     },
     {
         "id": 1,
-        "title": "John Wick 2",
-        "score": 3.6,
-        "genres": ["Action", "Crime", "Thriller"],
-        "rating": "R",
-        "synopsis": "In this third installment of the adrenaline-fueled action franchise, super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting",
+        "title": "Inception",
+        "score": 4.4,
+        "genres": ["Action", "Adventure", "Sci-Fi"],
+        "rating": "PG-13",
+        "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
         "cast": {
-            "Keanu Reeves": "John Wick",
-            "Halle Berry": "Sofia",
-            "Laurence Fishburne": "Bowery King",
-            "Mark Dacascos": "Zero"
+            "Leonardo DiCaprio": "Cobb",
+            "Joseph Gordon-Levitt": "Arthur",
+            "Elliot Page": "Ariadne",
+            "Tom Hardy": "Eames"
         },
-        "duration": 130,
-        "imageName": "johnwick3",
+        "duration": 148,
+        "imageName": "inception",
+        "category": "Now Showing"
+    },
+    {
+        "id": 2,
+        "title": "The Dark Knight",
+        "score": 4.5,
+        "genres": ["Action", "Crime", "Drama"],
+        "rating": "PG-13",
+        "synopsis": "When the menace known as The Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        "cast": {
+            "Christian Bale": "Batman / Bruce Wayne",
+            "Heath Ledger": "Joker",
+            "Gary Oldman": "Commissioner Gordon",
+            "Aaron Eckhart": "Harvey Dent / Two-Face"
+        },
+        "duration": 152,
+        "imageName": "thedarkknight",
+        "category": "Now Showing"
+    },
+    {
+        "id": 3,
+        "title": "Pulp Fiction",
+        "score": 4.8,
+        "genres": ["Crime", "Drama"],
+        "rating": "R",
+        "synopsis": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        "cast": {
+            "John Travolta": "Vincent Vega",
+            "Samuel L. Jackson": "Jules Winnfield",
+            "Uma Thurman": "Mia Wallace",
+            "Bruce Willis": "Butch Coolidge"
+        },
+        "duration": 154,
+        "imageName": "pulpfiction",
+        "category": "Coming Soon"
+    },
+    {
+        "id": 4,
+        "title": "The Matrix",
+        "score": 4.9,
+        "genres": ["Action", "Sci-Fi"],
+        "rating": "R",
+        "synopsis": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against the controllers of it.",
+        "cast": {
+            "Keanu Reeves": "Neo",
+            "Carrie-Anne Moss": "Trinity",
+            "Laurence Fishburne": "Morpheus",
+            "Hugo Weaving": "Agent Smith"
+        },
+        "duration": 136,
+        "imageName": "thematrix",
+        "category": "Now Showing"
+    },
+    {
+        "id": 5,
+        "title": "Forrest Gump",
+        "score": 4.7,
+        "genres": ["Drama", "Romance"],
+        "rating": "PG-13",
+        "synopsis": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal, and other historical events unfold through the perspective of an Alabama man with an IQ of 75.",
+        "cast": {
+            "Tom Hanks": "Forrest Gump",
+            "Robin Wright": "Jenny Curran",
+            "Gary Sinise": "Lieutenant Dan Taylor",
+            "Sally Field": "Mrs. Gump"
+        },
+        "duration": 142,
+        "imageName": "forrestgump",
         "category": "Coming Soon"
     }
 ]

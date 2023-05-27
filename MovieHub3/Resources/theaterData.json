@@ -1,0 +1,82 @@
+[
+    {
+        "id": 0,
+        "location": "Pakuwon Mall",
+        "coordinate": {
+            "longitude": 112.7563,
+            "latitude": -7.2797
+        }
+    },
+    {
+        "id": 1,
+        "location": "Grand Indonesia",
+        "coordinate": {
+            "longitude": 106.8219,
+            "latitude": -6.1953
+        }
+    },
+    {
+        "id": 2,
+        "location": "Plaza Senayan",
+        "coordinate": {
+            "longitude": 106.7973,
+            "latitude": -6.2276
+        }
+    },
+    {
+        "id": 3,
+        "location": "Kota Kasablanka",
+        "coordinate": {
+            "longitude": 106.8433,
+            "latitude": -6.2233
+        }
+    },
+    {
+        "id": 4,
+        "location": "Senayan City",
+        "coordinate": {
+            "longitude": 106.7944,
+            "latitude": -6.2274
+        }
+    },
+    {
+        "id": 5,
+        "location": "Central Park",
+        "coordinate": {
+            "longitude": 106.7893,
+            "latitude": -6.1759
+        }
+    },
+    {
+        "id": 6,
+        "location": "Taman Anggrek Mall",
+        "coordinate": {
+            "longitude": 106.7886,
+            "latitude": -6.1787
+        }
+    },
+    {
+        "id": 7,
+        "location": "FX Sudirman",
+        "coordinate": {
+            "longitude": 106.8036,
+            "latitude": -6.2194
+        }
+    },
+    {
+        "id": 8,
+        "location": "Gandaria City",
+        "coordinate": {
+            "longitude": 106.7836,
+            "latitude": -6.2458
+        }
+    },
+    {
+        "id": 9,
+        "location": "Mall of Indonesia",
+        "coordinate": {
+            "longitude": 106.9141,
+            "latitude": -6.1583
+        }
+    }
+]
