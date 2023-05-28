@@ -24,6 +24,8 @@ struct ContentView: View {
         standardAppearance.backgroundColor = UIColor(red: 217/255.0, green: 37/255.0, blue: 29/255.0, alpha: 1)
         standardAppearance.stackedLayoutAppearance.normal.iconColor = .white
         standardAppearance.inlineLayoutAppearance.normal.iconColor = .white
+        standardAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+        standardAppearance.inlineLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
         UITabBar.appearance().standardAppearance = standardAppearance
         UITabBar.appearance().scrollEdgeAppearance = standardAppearance
         let navBarAppearance = UINavigationBar.appearance()

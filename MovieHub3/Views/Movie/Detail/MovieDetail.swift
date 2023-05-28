@@ -75,6 +75,7 @@ struct MovieDetail: View {
                 case .reviews:
                     Reviews()
                         .padding(.horizontal, 10)
+                        .environmentObject(viewModel)
                 case .showtime:
                     Showtime(showtimes: viewModel.showtimes)
                         .padding(.horizontal, 10)
