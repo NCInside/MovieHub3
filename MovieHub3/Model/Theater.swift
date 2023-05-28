@@ -10,6 +10,8 @@ import CoreLocation
 
 struct Theater: Hashable, Codable, Identifiable {
     var id: Int
+    var name: String
+    var phone:String
     var location: String
     
     private var coordinate: Coordinate

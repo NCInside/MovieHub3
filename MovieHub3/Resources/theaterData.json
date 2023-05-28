@@ -1,7 +1,9 @@
 [
     {
         "id": 0,
-        "location": "Pakuwon Mall",
+        "name": "Pakuwon Theater",
+        "phone": "0891234123",
+        "location": "Surabaya, Jawa timur, citraland",
         "coordinate": {
             "longitude": 112.7563,
             "latitude": -7.2797
@@ -9,7 +11,9 @@
     },
     {
         "id": 1,
-        "location": "Grand Indonesia",
+        "name": "Grand Indonesia",
+        "phone": "18273917",
+        "location": "Surabaya, Jawa timur, tengah kota",
         "coordinate": {
             "longitude": 106.8219,
             "latitude": -6.1953
@@ -17,7 +21,9 @@
     },
     {
         "id": 2,
-        "location": "Plaza Senayan",
+        "name": "Plaza Senayan",
+        "phone": "082236697711",
+        "location": "Jakarta, Jawa timur, citraland",
         "coordinate": {
             "longitude": 106.7973,
             "latitude": -6.2276
@@ -25,7 +31,9 @@
     },
     {
         "id": 3,
-        "location": "Kota Kasablanka",
+        "name": "Kota Kasablanka",
+        "phone": "8723749164",
+        "location": "Surabaya, Jawa timur, buzetao",
         "coordinate": {
             "longitude": 106.8433,
             "latitude": -6.2233
@@ -33,7 +41,9 @@
     },
     {
         "id": 4,
-        "location": "Senayan City",
+        "name": "Senayan Theater",
+        "phone": "0891234123",
+        "location": "Senayan City, Jawa timur, citraland",
         "coordinate": {
             "longitude": 106.7944,
             "latitude": -6.2274
@@ -41,7 +51,9 @@
     },
     {
         "id": 5,
-        "location": "Central Park",
+        "name": "Central Park",
+        "phone": "0891234123",
+        "location": "Jakarta, Jawa timur, citraland",
         "coordinate": {
             "longitude": 106.7893,
             "latitude": -6.1759
@@ -49,7 +61,9 @@
     },
     {
         "id": 6,
-        "location": "Taman Anggrek Mall",
+        "name": "Taman Anggrek Mall",
+        "phone": "0891234123",
+        "location": "Taman Agnggrek, Jawa timur, citraland",
         "coordinate": {
             "longitude": 106.7886,
             "latitude": -6.1787
@@ -57,7 +71,9 @@
     },
     {
         "id": 7,
-        "location": "FX Sudirman",
+        "name": "Gor Masters",
+        "phone": "0891234123",
+        "location": "Surabaya, Jawa timur, citraland",
         "coordinate": {
             "longitude": 106.8036,
             "latitude": -6.2194
@@ -65,7 +81,9 @@
     },
     {
         "id": 8,
-        "location": "Gandaria City",
+        "name": "Gandaria city",
+        "phone": "0891234123",
+        "location": "Surabaya, Jawa timur, citraland",
         "coordinate": {
             "longitude": 106.7836,
             "latitude": -6.2458
@@ -73,7 +91,9 @@
     },
     {
         "id": 9,
-        "location": "Mall of Indonesia",
+        "name": "Grand Mall Indonesia",
+        "phone": "0891234123",
+        "location": "Surabaya, Jawa timur, citraland",
         "coordinate": {
             "longitude": 106.9141,
             "latitude": -6.1583
