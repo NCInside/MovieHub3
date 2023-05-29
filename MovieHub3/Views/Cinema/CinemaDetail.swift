@@ -43,7 +43,7 @@ struct CinemaDetail: View {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(viewModel.listmovies) {movie in
                         NavigationLink {
-                            MovieDetail(movie: movie)
+                            BuyTicketView(movie: movie, theaterid: cinema.id)
                         } label: {
                             CinemaMovieCard(movie: movie, theaterid: cinema.id)
                         }
