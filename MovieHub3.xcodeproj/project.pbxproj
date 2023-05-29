@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0400A3232A233504000A6645 /* CinemaMovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400A3222A233504000A6645 /* CinemaMovieCard.swift */; };
 		0400A3252A233546000A6645 /* CinemaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400A3242A233546000A6645 /* CinemaViewModel.swift */; };
+		0401038D2A23A40B0072E0BB /* CinemaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401038B2A23A40B0072E0BB /* CinemaRow.swift */; };
+		0401038E2A23A40B0072E0BB /* CinemaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401038C2A23A40B0072E0BB /* CinemaList.swift */; };
 		04153A402A22F87B00708974 /* ReviewCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04153A3F2A22F87B00708974 /* ReviewCreate.swift */; };
 		0418F49A2A21ADB9006D5B50 /* theaterData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F4992A21ADB9006D5B50 /* theaterData.json */; };
 		0418F49C2A21AFD7006D5B50 /* theaterMovieData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		0400A3222A233504000A6645 /* CinemaMovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMovieCard.swift; sourceTree = "<group>"; };
 		0400A3242A233546000A6645 /* CinemaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaViewModel.swift; sourceTree = "<group>"; };
+		0401038B2A23A40B0072E0BB /* CinemaRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CinemaRow.swift; path = "../../../../../Desktop/MovieHub3-main/MovieHub3/Views/Cinema/CinemaRow.swift"; sourceTree = "<group>"; };
+		0401038C2A23A40B0072E0BB /* CinemaList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CinemaList.swift; path = "../../../../../Desktop/MovieHub3-main/MovieHub3/Views/Cinema/CinemaList.swift"; sourceTree = "<group>"; };
 		04153A3F2A22F87B00708974 /* ReviewCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCreate.swift; sourceTree = "<group>"; };
 		0418F4992A21ADB9006D5B50 /* theaterData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = theaterData.json; sourceTree = "<group>"; };
 		0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = theaterMovieData.json; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 		04D181312A1EF4CF007989D8 /* Cinema */ = {
 			isa = PBXGroup;
 			children = (
+				0401038C2A23A40B0072E0BB /* CinemaList.swift */,
+				0401038B2A23A40B0072E0BB /* CinemaRow.swift */,
 				04D181422A1EF588007989D8 /* CinemaDetail.swift */,
 				04D181412A1EF588007989D8 /* MapView.swift */,
 				0400A3222A233504000A6645 /* CinemaMovieCard.swift */,
@@ -335,6 +341,7 @@
 				04D1814F2A1EF5AE007989D8 /* OnboardingView3.swift in Sources */,
 				04BDD1342A2045EA00C16D65 /* Detail.swift in Sources */,
 				04D181492A1EF5A3007989D8 /* ProfileView.swift in Sources */,
+				0401038D2A23A40B0072E0BB /* CinemaRow.swift in Sources */,
 				04BDD1382A20460400C16D65 /* Showtime.swift in Sources */,
 				04D181442A1EF588007989D8 /* CinemaDetail.swift in Sources */,
 				04D1814E2A1EF5AE007989D8 /* OnboardingView1.swift in Sources */,
@@ -350,6 +357,8 @@
 				04D1811A2A1EF43C007989D8 /* MovieHub3App.swift in Sources */,
 				04D181502A1EF5AE007989D8 /* OnboardingView2.swift in Sources */,
 				04D181482A1EF5A3007989D8 /* MenuListView.swift in Sources */,
+				0401038E2A23A40B0072E0BB /* CinemaList.swift in Sources */,
+				04D181482A1EF5A3007989D8 /* ProfileMenu.swift in Sources */,
 				04D1813F2A1EF579007989D8 /* MovieCard.swift in Sources */,
 				BFAEC2122A23C2C700C6FA18 /* Reviews History.swift in Sources */,
 				04D181372A1EF543007989D8 /* Movie.swift in Sources */,
