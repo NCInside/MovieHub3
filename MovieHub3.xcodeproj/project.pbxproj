@@ -9,6 +9,25 @@
 /* Begin PBXBuildFile section */
 		0400A3232A233504000A6645 /* CinemaMovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400A3222A233504000A6645 /* CinemaMovieCard.swift */; };
 		0400A3252A233546000A6645 /* CinemaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400A3242A233546000A6645 /* CinemaViewModel.swift */; };
+		040B21AD2A2363BF00C3B1B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B21AC2A2363BF00C3B1B2 /* ContentView.swift */; };
+		040B21AF2A2363C000C3B1B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040B21AE2A2363C000C3B1B2 /* Assets.xcassets */; };
+		040B21B22A2363C000C3B1B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040B21B12A2363C000C3B1B2 /* Preview Assets.xcassets */; };
+		040B21B72A236A0700C3B1B2 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D181352A1EF543007989D8 /* Movie.swift */; };
+		040B21B82A236A0700C3B1B2 /* MovieTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A52A21D176006D5B50 /* MovieTime.swift */; };
+		040B21B92A236A0700C3B1B2 /* movieData.json in Resources */ = {isa = PBXBuildFile; fileRef = 04D181392A1EF563007989D8 /* movieData.json */; };
+		040B21BA2A236A0700C3B1B2 /* theaterMovieData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */; };
+		040B21BB2A236A0700C3B1B2 /* timeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F49D2A21BEA2006D5B50 /* timeData.json */; };
+		040B21BC2A236A0700C3B1B2 /* theaterData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F4992A21ADB9006D5B50 /* theaterData.json */; };
+		040B21BD2A236A0700C3B1B2 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D181362A1EF543007989D8 /* ModelData.swift */; };
+		040B21BE2A236A0700C3B1B2 /* TheaterMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A32A21D11C006D5B50 /* TheaterMovie.swift */; };
+		040B21BF2A236A0700C3B1B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D1811D2A1EF43D007989D8 /* Assets.xcassets */; };
+		040B21C02A236A0700C3B1B2 /* MovieHub3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D181192A1EF43C007989D8 /* MovieHub3App.swift */; };
+		040B21C12A236A0700C3B1B2 /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A12A21D06F006D5B50 /* Theater.swift */; };
+		040B21C22A236A2C00C3B1B2 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F09E7F2A20EF7400E8F263 /* MovieViewModel.swift */; };
+		040B21C32A236A2C00C3B1B2 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F09E822A2103E400E8F263 /* MovieDetailViewModel.swift */; };
+		040B21C42A2374F000C3B1B2 /* MovieHub3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04D181242A1EF43D007989D8 /* MovieHub3.xcdatamodeld */; };
+		040B21C92A2398A500C3B1B2 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1813B2A1EF579007989D8 /* MovieList.swift */; };
+		040B21CA2A2398A500C3B1B2 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1813C2A1EF579007989D8 /* MovieCard.swift */; };
 		04153A402A22F87B00708974 /* ReviewCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04153A3F2A22F87B00708974 /* ReviewCreate.swift */; };
 		0418F49A2A21ADB9006D5B50 /* theaterData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F4992A21ADB9006D5B50 /* theaterData.json */; };
 		0418F49C2A21AFD7006D5B50 /* theaterMovieData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */; };
@@ -58,6 +77,11 @@
 /* Begin PBXFileReference section */
 		0400A3222A233504000A6645 /* CinemaMovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMovieCard.swift; sourceTree = "<group>"; };
 		0400A3242A233546000A6645 /* CinemaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaViewModel.swift; sourceTree = "<group>"; };
+		040B21A82A2363BF00C3B1B2 /* MacMovieHub3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacMovieHub3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B21AC2A2363BF00C3B1B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		040B21AE2A2363C000C3B1B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		040B21B12A2363C000C3B1B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		040B21B32A2363C000C3B1B2 /* MacMovieHub3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacMovieHub3.entitlements; sourceTree = "<group>"; };
 		04153A3F2A22F87B00708974 /* ReviewCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCreate.swift; sourceTree = "<group>"; };
 		0418F4992A21ADB9006D5B50 /* theaterData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = theaterData.json; sourceTree = "<group>"; };
 		0418F49B2A21AFD7006D5B50 /* theaterMovieData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = theaterMovieData.json; sourceTree = "<group>"; };
@@ -106,6 +130,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		040B21A52A2363BF00C3B1B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D181132A1EF43C007989D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -116,6 +147,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040B21A92A2363BF00C3B1B2 /* MacMovieHub3 */ = {
+			isa = PBXGroup;
+			children = (
+				040B21AC2A2363BF00C3B1B2 /* ContentView.swift */,
+				040B21AE2A2363C000C3B1B2 /* Assets.xcassets */,
+				040B21B32A2363C000C3B1B2 /* MacMovieHub3.entitlements */,
+				040B21B02A2363C000C3B1B2 /* Preview Content */,
+			);
+			path = MacMovieHub3;
+			sourceTree = "<group>";
+		};
+		040B21B02A2363C000C3B1B2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				040B21B12A2363C000C3B1B2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		04153A412A23132700708974 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				04D181182A1EF43C007989D8 /* MovieHub3 */,
+				040B21A92A2363BF00C3B1B2 /* MacMovieHub3 */,
 				04D181172A1EF43C007989D8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				04D181162A1EF43C007989D8 /* MovieHub3.app */,
+				040B21A82A2363BF00C3B1B2 /* MacMovieHub3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +320,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		040B21A72A2363BF00C3B1B2 /* MacMovieHub3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 040B21B62A2363C000C3B1B2 /* Build configuration list for PBXNativeTarget "MacMovieHub3" */;
+			buildPhases = (
+				040B21A42A2363BF00C3B1B2 /* Sources */,
+				040B21A52A2363BF00C3B1B2 /* Frameworks */,
+				040B21A62A2363BF00C3B1B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacMovieHub3;
+			productName = MacMovieHub3;
+			productReference = 040B21A82A2363BF00C3B1B2 /* MacMovieHub3.app */;
+			productType = "com.apple.product-type.application";
+		};
 		04D181152A1EF43C007989D8 /* MovieHub3 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04D181292A1EF43D007989D8 /* Build configuration list for PBXNativeTarget "MovieHub3" */;
@@ -295,6 +364,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					040B21A72A2363BF00C3B1B2 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					04D181152A1EF43C007989D8 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -314,11 +386,26 @@
 			projectRoot = "";
 			targets = (
 				04D181152A1EF43C007989D8 /* MovieHub3 */,
+				040B21A72A2363BF00C3B1B2 /* MacMovieHub3 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		040B21A62A2363BF00C3B1B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040B21BB2A236A0700C3B1B2 /* timeData.json in Resources */,
+				040B21BA2A236A0700C3B1B2 /* theaterMovieData.json in Resources */,
+				040B21B22A2363C000C3B1B2 /* Preview Assets.xcassets in Resources */,
+				040B21BC2A236A0700C3B1B2 /* theaterData.json in Resources */,
+				040B21BF2A236A0700C3B1B2 /* Assets.xcassets in Resources */,
+				040B21AF2A2363C000C3B1B2 /* Assets.xcassets in Resources */,
+				040B21B92A236A0700C3B1B2 /* movieData.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D181142A1EF43C007989D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +423,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		040B21A42A2363BF00C3B1B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040B21C42A2374F000C3B1B2 /* MovieHub3.xcdatamodeld in Sources */,
+				040B21B72A236A0700C3B1B2 /* Movie.swift in Sources */,
+				040B21BD2A236A0700C3B1B2 /* ModelData.swift in Sources */,
+				040B21B82A236A0700C3B1B2 /* MovieTime.swift in Sources */,
+				040B21C22A236A2C00C3B1B2 /* MovieViewModel.swift in Sources */,
+				040B21C92A2398A500C3B1B2 /* MovieList.swift in Sources */,
+				040B21C12A236A0700C3B1B2 /* Theater.swift in Sources */,
+				040B21BE2A236A0700C3B1B2 /* TheaterMovie.swift in Sources */,
+				040B21CA2A2398A500C3B1B2 /* MovieCard.swift in Sources */,
+				040B21C02A236A0700C3B1B2 /* MovieHub3App.swift in Sources */,
+				040B21AD2A2363BF00C3B1B2 /* ContentView.swift in Sources */,
+				040B21C32A236A2C00C3B1B2 /* MovieDetailViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D181122A1EF43C007989D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +492,64 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		040B21B42A2363C000C3B1B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacMovieHub3/MacMovieHub3.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacMovieHub3/Preview Content\"";
+				DEVELOPMENT_TEAM = 592BA54XZ3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nicholas.MacMovieHub3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		040B21B52A2363C000C3B1B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacMovieHub3/MacMovieHub3.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacMovieHub3/Preview Content\"";
+				DEVELOPMENT_TEAM = 592BA54XZ3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nicholas.MacMovieHub3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		04D181272A1EF43D007989D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -561,6 +725,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		040B21B62A2363C000C3B1B2 /* Build configuration list for PBXNativeTarget "MacMovieHub3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040B21B42A2363C000C3B1B2 /* Debug */,
+				040B21B52A2363C000C3B1B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		04D181112A1EF43C007989D8 /* Build configuration list for PBXProject "MovieHub3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

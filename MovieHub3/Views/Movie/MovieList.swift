@@ -11,17 +11,18 @@ struct MovieList: View {
     
     @StateObject private var viewModel = MovieViewModel()
     
-    private let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+    private let columns = [
+        GridItem(.adaptive(minimum: 150))
     ]
     
     init() {
+        #if os(iOS)
         let searchBarAppearance = UISearchBar.appearance()
         searchBarAppearance.barStyle = .black
         searchBarAppearance.tintColor = .red
         let textFieldAppearance = UISearchTextField.appearance()
         textFieldAppearance.backgroundColor = .white
+        #endif
     }
     
     var body: some View {
@@ -46,11 +47,16 @@ struct MovieList: View {
                     }
                 }
                 .padding(.horizontal, 10)
+                #if !os(iOS)
+                .searchable(text: $viewModel.searchText, placement: .toolbar)
+                #endif
             }
             .navigationTitle("Movies")
             .background(Color.black)
         }
+        #if os(iOS)
         .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for Movies")
+        #endif
         .accentColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
     }
 }

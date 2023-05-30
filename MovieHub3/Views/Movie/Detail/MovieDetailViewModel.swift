@@ -10,7 +10,7 @@ import CoreData
 
 final class MovieDetailViewModel: ObservableObject {
     
-    @Published var selectedSection: MovieSection = .reviews
+    @Published var selectedSection: MovieSection = .detail
     enum MovieSection: String, CaseIterable, Identifiable {
         case detail = "Detail"
         case reviews = "Reviews"
