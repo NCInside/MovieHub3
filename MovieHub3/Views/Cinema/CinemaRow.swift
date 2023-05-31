@@ -21,14 +21,17 @@ struct CinemaRow: View {
         VStack{
             HStack {
                 HStack{
+                    
                     Image("cinema").frame(width: 50, height: 50)
                     Text(cinema.name)
-                }
-                HStack{
                     Spacer()
                 }
+                HStack{
+                    Image(systemName: "chevron.right").frame(width: 50, height: 50).foregroundColor(Color.red)
+                }
             }
-            .foregroundColor(.black)
+            .background(Color.black)
+            .foregroundColor(.white)
             Rectangle()
                 .fill(Color.white)
                 .frame(height: 2)

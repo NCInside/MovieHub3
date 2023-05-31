@@ -45,7 +45,7 @@ struct ContentView: View {
                     Label("Movies", systemImage: "film")
                 }
                 .tag(Tab.movie)
-            CinemaList(cinema: ModelData().theaters[1]).environmentObject(ModelData())
+            CinemaList()
                 .tabItem {
                     Label("Theaters", systemImage: "popcorn")
                 }

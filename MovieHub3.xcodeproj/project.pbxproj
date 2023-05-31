@@ -35,6 +35,7 @@
 		0418F4A22A21D06F006D5B50 /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A12A21D06F006D5B50 /* Theater.swift */; };
 		0418F4A42A21D11C006D5B50 /* TheaterMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A32A21D11C006D5B50 /* TheaterMovie.swift */; };
 		0418F4A62A21D176006D5B50 /* MovieTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418F4A52A21D176006D5B50 /* MovieTime.swift */; };
+		043ED2DD2A26F4E200A5A114 /* CinemaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED2DC2A26F4E200A5A114 /* CinemaListViewModel.swift */; };
 		04BDD1342A2045EA00C16D65 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1332A2045EA00C16D65 /* Detail.swift */; };
 		04BDD1362A2045F400C16D65 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1352A2045F400C16D65 /* Reviews.swift */; };
 		04BDD1382A20460400C16D65 /* Showtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1372A20460400C16D65 /* Showtime.swift */; };
@@ -89,6 +90,7 @@
 		0418F4A12A21D06F006D5B50 /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		0418F4A32A21D11C006D5B50 /* TheaterMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterMovie.swift; sourceTree = "<group>"; };
 		0418F4A52A21D176006D5B50 /* MovieTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTime.swift; sourceTree = "<group>"; };
+		043ED2DC2A26F4E200A5A114 /* CinemaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaListViewModel.swift; sourceTree = "<group>"; };
 		04BDD1332A2045EA00C16D65 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		04BDD1352A2045F400C16D65 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		04BDD1372A20460400C16D65 /* Showtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Showtime.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				04F9A3142A23666A005EB938 /* TicketConfirmationView.swift */,
 				04F9A3162A24705E005EB938 /* CinemaList.swift */,
 				04F9A3182A247097005EB938 /* CinemaRow.swift */,
+				043ED2DC2A26F4E200A5A114 /* CinemaListViewModel.swift */,
 			);
 			path = Cinema;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				04D181432A1EF588007989D8 /* MapView.swift in Sources */,
 				04F9A3112A23515F005EB938 /* CinemaMovieViewModel.swift in Sources */,
 				04F09E832A2103E400E8F263 /* MovieDetailViewModel.swift in Sources */,
+				043ED2DD2A26F4E200A5A114 /* CinemaListViewModel.swift in Sources */,
 				04F09E802A20EF7400E8F263 /* MovieViewModel.swift in Sources */,
 				BFAEC2142A23C2D100C6FA18 /* Watchlist.swift in Sources */,
 				04F9A3172A24705E005EB938 /* CinemaList.swift in Sources */,

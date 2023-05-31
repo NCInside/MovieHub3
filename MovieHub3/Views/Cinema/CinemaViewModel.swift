@@ -24,21 +24,9 @@ final class CinemaViewModel: ObservableObject {
         movies.forEach {movie in
             self.listmovies = getMovies(theaterID: id)
         }
-        
-        filterTheatres()
     }
     private func getMovies(theaterID: Int) -> [Movie] {
         let movieIDs = theaterMovies.filter { $0.theaterID == theaterID }.map { $0.movieID }
         return movies.filter { movieIDs.contains($0.id) }
-    }
-    
-    private func filterTheatres() {
-        $searchText
-            .map { searchText in
-                return self.theaters.filter { theater in
-                    theater.name.lowercased().contains(searchText.lowercased()) || searchText == ""
-                }
-            }
-            .assign(to: &$theaters)
     }
 }
