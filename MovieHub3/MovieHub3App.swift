@@ -10,11 +10,12 @@ import SwiftUI
 @main
 struct MovieHub2App: App {
     @StateObject private var modelData = ModelData()
-
+    @StateObject private var userController = UserController()
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(modelData)
+                .environmentObject(userController)
             
         }
     }

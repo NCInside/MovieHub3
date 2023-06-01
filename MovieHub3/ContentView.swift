@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection: Tab = .movie
     @AppStorage("shouldonboard") var shouldonboard: Bool = true
+    @EnvironmentObject var usercontroller: UserController
     //    @State var shouldonboard: Bool = true
     
     enum Tab {
@@ -55,6 +56,7 @@ struct ContentView: View {
                     Label("Profile", systemImage: "person.fill")
                 }
                 .tag(Tab.profile)
+                .environmentObject(usercontroller)
         }
         .accentColor(Color.black)
         .fullScreenCover(isPresented: $shouldonboard, content: {
