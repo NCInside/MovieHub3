@@ -13,8 +13,9 @@ struct ProfileMenu: Identifiable {
 }
 
 struct ProfileView: View {
+    let movieReviewsCount = 20
+    let moviesLikedCount = 35
     @EnvironmentObject var userController: UserController
-    @EnvironmentObject var ticketviewmodel : TicketViewModel
     
     var body: some View {
         NavigationView {
@@ -40,7 +41,7 @@ struct ProfileView: View {
 
                 HStack {
                     VStack {
-                        Text("\(userController.reviews.count)")
+                        Text("\(movieReviewsCount)")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -55,7 +56,7 @@ struct ProfileView: View {
                         .foregroundColor(.gray)
 
                     VStack {
-                        Text("\(ticketviewmodel.tickets.count)")
+                        Text("\(moviesLikedCount)")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -76,17 +77,12 @@ struct ProfileView: View {
             .background(Color.black)
             .navigationTitle("Profile")
         }
-        .onAppear {
-            userController.fetchAllReviews()
-            ticketviewmodel.fetchAllTickets()
-            
-        }
     }
 }
 
-//struct ProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileView()
-//            .environmentObject(UserController())
-//    }
-//}
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView()
+            .environmentObject(UserController())
+    }
+}
