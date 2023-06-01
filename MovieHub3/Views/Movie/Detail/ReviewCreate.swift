@@ -33,7 +33,9 @@ struct ReviewCreate: View {
                         .foregroundColor(.white)
                 }
             }
+            #if os(iOS)
             .pickerStyle(.wheel)
+            #endif
             .frame(height: 150)
             .cornerRadius(8)
             

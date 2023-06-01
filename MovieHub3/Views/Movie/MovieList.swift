@@ -11,9 +11,7 @@ struct MovieList: View {
     
     @StateObject private var viewModel = MovieViewModel()
     
-    private let columns = [
-        GridItem(.adaptive(minimum: 150))
-    ]
+    private let columns: [GridItem]
     
     init() {
         #if os(iOS)
@@ -23,6 +21,15 @@ struct MovieList: View {
         let textFieldAppearance = UISearchTextField.appearance()
         textFieldAppearance.backgroundColor = .white
         #endif
+        
+        columns = [{
+            #if os(iOS)
+            GridItem(.adaptive(minimum: 150))
+            #else
+            GridItem(.adaptive(minimum: 200))
+            #endif
+            }()
+        ]
     }
     
     var body: some View {
