@@ -4,17 +4,18 @@
 //
 //  Created by Vincent on 29/05/23.
 //
-
 import SwiftUI
 
 struct AccountInformation: View {
-    @State private var email: String = "john.doe@example.com"
-    @State private var password: String = "password123"
-    @State private var phone: String = "1234567890"
-    @State private var profilePic: String = "profile.jpg"
-    @State private var name: String = "John Doe"
-    @State private var age: String = "30"
-    @State private var location: String = "New York"
+    @EnvironmentObject private var userController: UserController
+    
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var phone: String = ""
+    @State private var profilePic: String = ""
+    @State private var name: String = ""
+    @State private var age: String = ""
+    @State private var location: String = ""
     
     var body: some View {
         ZStack {
@@ -22,8 +23,6 @@ struct AccountInformation: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .leading, spacing: 20) {
-                
-                
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Account Information")
                         .font(.title)
@@ -35,9 +34,8 @@ struct AccountInformation: View {
                     AttributeTextField(title: "Email", text: $email)
                     AttributeSecureField(title: "Password", text: $password)
                     AttributeTextField(title: "Phone", text: $phone)
-//                    AttributeTextField(title: "Profile Picture", text: $profilePic)
-                 
                 }
+                .accentColor(.red)
                 .padding(.horizontal, 20)
                 
                 Spacer()
@@ -46,6 +44,39 @@ struct AccountInformation: View {
             .foregroundColor(.white)
         }
         .accentColor(.red) // Set the accent color to red
+        .navigationBarItems(trailing: Button(action: saveUserData) {
+            Text("Save")
+                .foregroundColor(.red)
+        })
+        .accentColor(.red) 
+        .onAppear {
+            loadUserData()
+        }
+    }
+    
+    private func loadUserData() {
+        let user = userController.user
+        email = user.email
+        password = user.password
+        phone = user.phone
+        profilePic = user.profilePic
+        name = user.name
+        age = String(user.age)
+        location = user.location
+    }
+    
+    private func saveUserData() {
+        // Update the user data in the user controller
+        userController.user.email = email
+        userController.user.password = password
+        userController.user.phone = phone
+        userController.user.profilePic = profilePic
+        userController.user.name = name
+        userController.user.age = Int(age) ?? 0
+        userController.user.location = location
+        
+        // Save the user data to UserDefaults using the user controller
+        userController.saveUser()
     }
 }
 
@@ -86,5 +117,6 @@ struct AttributeSecureField: View {
 struct AccountInformation_Previews: PreviewProvider {
     static var previews: some View {
         AccountInformation()
+            .environmentObject(UserController())
     }
 }

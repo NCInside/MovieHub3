@@ -7,13 +7,12 @@
 
 import Foundation
 struct User: Codable {
-    let id: String
-    let email: String
-    let password: String
-    let phone: String
-    let profilePic: String
-    let name: String
-    let age: Int
-    let location: String
-    var likedMovies: [Int]
+    var id: String
+    var email: String
+    var password: String
+    var phone: String
+    var profilePic: String
+    var name: String
+    var age: Int
+    var location: String
 }

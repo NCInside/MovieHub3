@@ -15,7 +15,8 @@ struct ProfileMenu: Identifiable {
 struct ProfileView: View {
     let movieReviewsCount = 20
     let moviesLikedCount = 35
-
+    @EnvironmentObject var userController: UserController
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -25,16 +26,16 @@ struct ProfileView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
 
-                Text("John Doe")
+                Text(userController.user.name) // Use the name from the user controller
                     .font(.title)
                     .padding()
                     .foregroundColor(.white)
 
-                Text("Age: 30")
+                Text("Age: \(userController.user.age)") // Use the age from the user controller
                     .font(.headline)
                     .foregroundColor(.gray)
 
-                Text("Location: New York")
+                Text("Location: \(userController.user.location)") // Use the location from the user controller
                     .font(.headline)
                     .foregroundColor(.gray)
 
@@ -59,7 +60,7 @@ struct ProfileView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                        Text("Movies Liked")
+                        Text("Movies Watched")
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
@@ -68,8 +69,8 @@ struct ProfileView: View {
                 .background(Color.black)
                 .cornerRadius(10)
                 
-                MenuListView() // Pass the menu items to the MenuListView
-
+                MenuListView() // Pass the user controller to the MenuListView
+                
                 Spacer()
             }
             .padding()
@@ -82,5 +83,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(UserController())
     }
 }
