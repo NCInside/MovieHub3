@@ -6,15 +6,29 @@
 //
 
 import SwiftUI
-
 struct Reviews_History: View {
+    @EnvironmentObject private var userController: UserController
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                List(userController.reviews, id: \.id) { review in
+                    ReviewRow(review: review)
+                        .foregroundColor(.red)
+                        .background(Color.black)
+                }
+                .listRowBackground(Color.black)
+                .background(Color.black)
+                .navigationBarTitle("My Reviews")
+            }
+            .background(Color.black.edgesIgnoringSafeArea(.all))
+//            .navigationBarBackButtonStyle(.foregroundColor(.red))
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            userController.fetchAllReviews()
+        }
     }
 }
 
-struct Reviews_History_Previews: PreviewProvider {
-    static var previews: some View {
-        Reviews_History()
-    }
-}
+

@@ -13,36 +13,40 @@ struct BuyTicketView: View {
         GridItem(.flexible())
     ]
     
-    var movie: Movie
+//    var movie: Movie
     var showtime: (theater: Theater, movietimes: [MovieTime])!
 
     @StateObject private var viewModel: CinemaMovieViewModel
-    var theaterid: Int
+    @State private var theaterid: Int
+    @State private var movie: Movie
     
     @State var datetime: String = ""
-    @State var ticketAmount:String = ""
+    @State var ticketAmount: String = ""
 
-    init(movie: Movie, theaterid: Int){
-        self.movie = movie
+    init(movie: Movie, theaterid: Int) {
+        self._movie = State(initialValue: movie)
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
-        self.theaterid = theaterid
+        self._theaterid = State(initialValue: theaterid)
         self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
     }
     
+    @StateObject private var ticketViewModel = TicketViewModel()
+    @State private var isTicketConfirmed = false
+
     var body: some View {
-        NavigationStack{
-            VStack{
-                HStack{
+        NavigationStack {
+            VStack {
+                HStack {
                     VStack(alignment: .center) {
                         movie.image
                             .resizable()
                             .frame(width: 170, height: 270)
                         HStack(spacing: 3) {
-                            ForEach (0..<(Int(movie.score)+1), id: \.self) {_ in
+                            ForEach (0..<(Int(movie.score) + 1), id: \.self) { _ in
                                 Image(systemName: "star.fill")
                                     .foregroundColor(Color(red: 255/255.0, green: 192/255.0, blue: 69/255.0))
                             }
-                            ForEach (0..<Int(5-movie.score), id: \.self) {_ in
+                            ForEach (0..<Int(5 - movie.score), id: \.self) { _ in
                                 Image(systemName: "star")
                                     .foregroundColor(Color(red: 255/255.0, green: 192/255.0, blue: 69/255.0))
                             }
@@ -55,10 +59,12 @@ struct BuyTicketView: View {
                         Text("\(movie.genres[0]) | \(movie.duration / 60)h \(movie.duration % 60)m | \(movie.rating)")
                             .font(.system(size: 14, weight: .medium, design: .default))
                             .foregroundColor(.gray)
-                        .padding(.top, 1)
+                            .padding(.top, 1)
                     }
                     VStack(alignment: .leading) {
-                        Text(viewModel.theater.name).font(.title2).bold()
+                        Text(viewModel.theater.name)
+                            .font(.title2)
+                            .bold()
                         HStack {
                             Image(systemName: "map.fill")
                             Text(viewModel.theater.location)
@@ -72,9 +78,9 @@ struct BuyTicketView: View {
                         Text("Showtime: ")
                         
                         VStack(alignment: .leading) {
-                            ForEach(showtime.movietimes, id: \.self) {time in
+                            ForEach(showtime.movietimes, id: \.self) { time in
                                 VStack {
-                                    HStack{
+                                    HStack {
                                         Capsule()
                                             .fill(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                                             .frame(width: 190, height: 30)
@@ -83,8 +89,8 @@ struct BuyTicketView: View {
                                             )
                                         Spacer()
                                     }
-                                    HStack{
-                                        ForEach(time.hours, id: \.self) {hour in
+                                    HStack {
+                                        ForEach(time.hours, id: \.self) { hour in
                                             Button(action: {
                                                 datetime = time.date + ", " + hour
                                             }) {
@@ -101,16 +107,17 @@ struct BuyTicketView: View {
                                 }
                             }
                         }
-                    }.padding(.leading)
+                    }
+                    .padding(.leading)
                 }
-                    .padding(.top, 15)
-                    .foregroundColor(.white)
-                    
+                .padding(.top, 15)
+                .foregroundColor(.white)
+                
                 Rectangle()
                     .fill(Color.white)
                     .frame(height: 4)
                 
-                HStack{
+                HStack {
                     Text("Ticket amount:")
                     TextField("Enter a number", text: $ticketAmount)
                         .keyboardType(.numberPad)
@@ -120,13 +127,20 @@ struct BuyTicketView: View {
                         .background(Color.black)
                 }
                 .foregroundColor(.white)
-
-                Text(datetime).foregroundColor(.white)
-                Text(ticketAmount).foregroundColor(.white)
+                
+                Text(datetime)
+                    .foregroundColor(.white)
+                Text(ticketAmount)
+                    .foregroundColor(.white)
+                
                 Spacer()
-                NavigationLink {
-                    TicketConfirmationView(movie: movie, theaterid: viewModel.theater.id, datetime: $datetime, ticketAmount: $ticketAmount)
-                } label: {
+                
+                Button(action: {
+                    var numberOfTickets = Int(ticketAmount) ?? 0
+                    var price: Double = Double(ticketAmount)! * 25000
+                    ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
+                    isTicketConfirmed = true
+                }) {
                     Text("Confirm order")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -135,13 +149,35 @@ struct BuyTicketView: View {
                         .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                         .cornerRadius(10)
                 }
+                .background(
+                    NavigationLink(
+                        destination: TicketConfirmationView(
+                            movie: movie,
+                            theaterid: viewModel.theater.id,
+                            datetime: $datetime,
+                            ticketAmount: $ticketAmount
+                        ),
+                        isActive: $isTicketConfirmed,
+                        label: {
+                            EmptyView()
+                        })
+                    .hidden()
+                )
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(25)
-                .background(.black)
-            }
+            .background(Color.black)
         }
+        .onAppear {
+            // Reset the datetime, ticketAmount, theaterid, and movie variables when the view appears
+            datetime = ""
+            ticketAmount = ""
+            theaterid = self.theaterid
+            movie = self.movie
+        }
+    }
 }
+
 
 struct BuyTicketView_Previews: PreviewProvider {
     static var movies = ModelData().movies

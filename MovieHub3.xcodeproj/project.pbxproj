@@ -73,6 +73,7 @@
 		BFAEC2142A23C2D100C6FA18 /* Watchlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2132A23C2D100C6FA18 /* Watchlist.swift */; };
 		BFAEC2182A23C8CA00C6FA18 /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = BFAEC2172A23C8CA00C6FA18 /* userData.json */; };
 		BFAEC21A2A23C94200C6FA18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2192A23C94200C6FA18 /* User.swift */; };
+		BFAEC2222A29045500C6FA18 /* TicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2212A29045500C6FA18 /* TicketViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		BFAEC2132A23C2D100C6FA18 /* Watchlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watchlist.swift; sourceTree = "<group>"; };
 		BFAEC2172A23C8CA00C6FA18 /* userData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
 		BFAEC2192A23C94200C6FA18 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BFAEC2212A29045500C6FA18 /* TicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 				04F9A3162A24705E005EB938 /* CinemaList.swift */,
 				04F9A3182A247097005EB938 /* CinemaRow.swift */,
 				043ED2DC2A26F4E200A5A114 /* CinemaListViewModel.swift */,
+				BFAEC2212A29045500C6FA18 /* TicketViewModel.swift */,
 			);
 			path = Cinema;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				BFAEC2102A23C2B800C6FA18 /* Transaction History.swift in Sources */,
 				BFAEC21A2A23C94200C6FA18 /* User.swift in Sources */,
 				04F09E7E2A20E1D700E8F263 /* ShowtimeRow.swift in Sources */,
+				BFAEC2222A29045500C6FA18 /* TicketViewModel.swift in Sources */,
 				04D1811C2A1EF43C007989D8 /* ContentView.swift in Sources */,
 				04D181402A1EF579007989D8 /* MovieDetail.swift in Sources */,
 				04F09E7C2A20E09400E8F263 /* ReviewRow.swift in Sources */,
