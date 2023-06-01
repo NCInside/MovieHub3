@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var selection: Tab = .movie
     @AppStorage("shouldonboard") var shouldonboard: Bool = true
     @EnvironmentObject var usercontroller: UserController
+    @EnvironmentObject var ticketviewmodel: TicketViewModel
+    
     //    @State var shouldonboard: Bool = true
     
     enum Tab {
@@ -57,6 +59,7 @@ struct ContentView: View {
                 }
                 .tag(Tab.profile)
                 .environmentObject(usercontroller)
+                .environmentObject(ticketviewmodel)
         }
         .accentColor(Color.black)
         .fullScreenCover(isPresented: $shouldonboard, content: {
