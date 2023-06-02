@@ -36,7 +36,7 @@ struct ContentView: View {
             case .movie:
                 MovieList()
             case .theater:
-                Text("Theater")
+                CinemaList()
             case .profile:
                 Text("Profile")
             }

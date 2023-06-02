@@ -19,22 +19,53 @@ struct CinemaRow: View {
     
     var body: some View {
         VStack{
-            HStack {
-                HStack{
-                    
-                    Image("cinema").frame(width: 50, height: 50)
-                    Text(cinema.name)
-                    Spacer()
+            #if os(iOS)
+                HStack {
+                    HStack{
+                        Image("cinema").frame(width: 50, height: 50)
+                        Text(cinema.name)
+                        Spacer()
+                    }
+                    HStack{
+                        Image(systemName: "chevron.right").frame(width: 50, height: 50).foregroundColor(Color.red)
+                    }
                 }
-                HStack{
-                    Image(systemName: "chevron.right").frame(width: 50, height: 50).foregroundColor(Color.red)
+                .background(Color.black)
+                .foregroundColor(.white)
+                Rectangle()
+                    .fill(Color.white)
+                    .frame(height: 2)
+            #endif
+            #if os(macOS)
+                HStack {
+                    HStack{
+                        Image("cinema")
+                            .resizable()
+                            .frame(width: 75, height: 75)
+                        Text(cinema.name)
+                            .font(.system(size: 50, weight: .heavy, design: .default))
+
+                        Spacer()
+                    }
+                    HStack{
+                        Image(systemName: "chevron.right").frame(width: 50, height: 50).foregroundColor(Color.red)
+                    }
                 }
-            }
-            .background(Color.black)
-            .foregroundColor(.white)
-            Rectangle()
-                .fill(Color.white)
-                .frame(height: 2)
+                .frame(width: 1200, height: 75)
+
+                .background(Color.black)
+                .foregroundColor(.white)
+                Rectangle()
+                    .fill(Color.white)
+                    .frame(height: 2)
+                    .frame(width: 1200, height: 75)
+
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(height: 2)
+            
+            #endif
+            
         }
     }
 }
