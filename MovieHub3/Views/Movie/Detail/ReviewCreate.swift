@@ -33,7 +33,7 @@ struct ReviewCreate: View {
                         .foregroundColor(.white)
                 }
             }
-            .pickerStyle(.wheel)
+            .pickerStyle(.automatic)
             .frame(height: 150)
             .cornerRadius(8)
             
@@ -44,12 +44,13 @@ struct ReviewCreate: View {
             }) {
                 Text("Submit")
                     .font(.headline)
-                    .foregroundColor(.white)
                     .frame(height: 40)
                     .frame(maxWidth: .infinity)
-                    .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                    .cornerRadius(8)
             }
+            .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+            .foregroundColor(.red)
+            .cornerRadius(8)
+
             
             Spacer()
         }

@@ -23,12 +23,14 @@ struct Reviews: View {
             } label: {
                 Text("Write a review")
                     .font(.headline)
-                    .foregroundColor(.white)
                     .frame(height: 40)
                     .frame(maxWidth: .infinity)
-                    .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                    .cornerRadius(10)
+                    
             }
+            .background(.blue)
+            .cornerRadius(10)
+            
+            
         }
     }
 }
