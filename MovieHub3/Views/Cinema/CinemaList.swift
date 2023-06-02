@@ -33,11 +33,11 @@ struct CinemaList: View {
                     ScrollView{
                         ForEach(viewModel.theaters) { theater in
                             NavigationLink {
-//                                CinemaDetail(cinema: theater)
-                                
+                                CinemaDetail(cinema: theater)
                             } label: {
                                 CinemaRow(cinema: theater)
                             }
+                            .tag(theater)
                             .buttonStyle(.plain)
                         }
                         .padding()

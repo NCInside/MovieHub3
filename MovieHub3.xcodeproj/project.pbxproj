@@ -49,6 +49,13 @@
 		0420561A2A2A2F8900FF606F /* CinemaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED2DC2A26F4E200A5A114 /* CinemaListViewModel.swift */; };
 		0420561B2A2A2F9400FF606F /* CinemaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9A3182A247097005EB938 /* CinemaRow.swift */; };
 		0420561C2A2A2FB400FF606F /* CinemaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400A3242A233546000A6645 /* CinemaViewModel.swift */; };
+		0420561E2A2A342D00FF606F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D181412A1EF588007989D8 /* MapView.swift */; };
+		0420561F2A2A343100FF606F /* BuyTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9A3122A235E36005EB938 /* BuyTicketView.swift */; };
+		042056202A2A343B00FF606F /* CinemaMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9A3102A23515E005EB938 /* CinemaMovieViewModel.swift */; };
+		042056212A2A343E00FF606F /* CinemaMovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400A3222A233504000A6645 /* CinemaMovieCard.swift */; };
+		042056222A2A344900FF606F /* TicketConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9A3142A23666A005EB938 /* TicketConfirmationView.swift */; };
+		042056232A2A355B00FF606F /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = BFAEC2172A23C8CA00C6FA18 /* userData.json */; };
+		042056252A2A41BF00FF606F /* CinemaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042056242A2A41BF00FF606F /* CinemaDetail.swift */; };
 		043ED2DD2A26F4E200A5A114 /* CinemaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ED2DC2A26F4E200A5A114 /* CinemaListViewModel.swift */; };
 		04BDD1342A2045EA00C16D65 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1332A2045EA00C16D65 /* Detail.swift */; };
 		04BDD1362A2045F400C16D65 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDD1352A2045F400C16D65 /* Reviews.swift */; };
@@ -106,6 +113,7 @@
 		0418F4A32A21D11C006D5B50 /* TheaterMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterMovie.swift; sourceTree = "<group>"; };
 		0418F4A52A21D176006D5B50 /* MovieTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTime.swift; sourceTree = "<group>"; };
 		042056112A2A1D4D00FF606F /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		042056242A2A41BF00FF606F /* CinemaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaDetail.swift; sourceTree = "<group>"; };
 		043ED2DC2A26F4E200A5A114 /* CinemaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaListViewModel.swift; sourceTree = "<group>"; };
 		04BDD1332A2045EA00C16D65 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		04BDD1352A2045F400C16D65 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 				040B21B32A2363C000C3B1B2 /* MacMovieHub3.entitlements */,
 				040B21B02A2363C000C3B1B2 /* Preview Content */,
 				042056112A2A1D4D00FF606F /* MovieDetail.swift */,
+				042056242A2A41BF00FF606F /* CinemaDetail.swift */,
 			);
 			path = MacMovieHub3;
 			sourceTree = "<group>";
@@ -424,6 +433,7 @@
 				040B21BC2A236A0700C3B1B2 /* theaterData.json in Resources */,
 				040B21BF2A236A0700C3B1B2 /* Assets.xcassets in Resources */,
 				040B21AF2A2363C000C3B1B2 /* Assets.xcassets in Resources */,
+				042056232A2A355B00FF606F /* userData.json in Resources */,
 				040B21B92A236A0700C3B1B2 /* movieData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,20 +471,26 @@
 				040B21C22A236A2C00C3B1B2 /* MovieViewModel.swift in Sources */,
 				040B21C92A2398A500C3B1B2 /* MovieList.swift in Sources */,
 				042056192A2A2F7600FF606F /* CinemaList.swift in Sources */,
+				042056212A2A343E00FF606F /* CinemaMovieCard.swift in Sources */,
+				042056252A2A41BF00FF606F /* CinemaDetail.swift in Sources */,
 				040B21C12A236A0700C3B1B2 /* Theater.swift in Sources */,
 				042056182A2A283800FF606F /* ReviewRow.swift in Sources */,
 				042056102A2A1D3600FF606F /* User.swift in Sources */,
 				040B21BE2A236A0700C3B1B2 /* TheaterMovie.swift in Sources */,
+				0420561F2A2A343100FF606F /* BuyTicketView.swift in Sources */,
 				042056142A2A27C600FF606F /* Showtime.swift in Sources */,
 				042056152A2A27CA00FF606F /* ShowtimeRow.swift in Sources */,
 				042056172A2A283500FF606F /* ReviewCreate.swift in Sources */,
 				040B21CA2A2398A500C3B1B2 /* MovieCard.swift in Sources */,
+				0420561E2A2A342D00FF606F /* MapView.swift in Sources */,
 				040B21C02A236A0700C3B1B2 /* MovieHub3App.swift in Sources */,
+				042056202A2A343B00FF606F /* CinemaMovieViewModel.swift in Sources */,
 				0420560E2A2A1D0600FF606F /* TicketViewModel.swift in Sources */,
 				040B21AD2A2363BF00C3B1B2 /* ContentView.swift in Sources */,
 				040B21C32A236A2C00C3B1B2 /* MovieDetailViewModel.swift in Sources */,
 				042056122A2A1D4D00FF606F /* MovieDetail.swift in Sources */,
 				0420561C2A2A2FB400FF606F /* CinemaViewModel.swift in Sources */,
+				042056222A2A344900FF606F /* TicketConfirmationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

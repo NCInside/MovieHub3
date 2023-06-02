@@ -8,7 +8,7 @@
 import Foundation
 
 final class CinemaListViewModel: ObservableObject {
-    @Published var theaters: [Theater] = [] // Assign initial value
+    @Published var theaters: [Theater] = []
 
     @Published var searchText = ""
     var data: [Theater] = []
@@ -22,7 +22,7 @@ final class CinemaListViewModel: ObservableObject {
         $searchText
             .map { searchText in
                 return self.data.filter { theater in
-                    (theater.name.lowercased().contains(searchText.lowercased()) || searchText == "")
+                    theater.name.lowercased().contains(searchText.lowercased()) || searchText == ""
                 }
             }
             .assign(to: &$theaters)

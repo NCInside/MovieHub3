@@ -27,7 +27,7 @@ struct Reviews: View {
                     .frame(maxWidth: .infinity)
                     
             }
-            .background(.blue)
+            .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
             .cornerRadius(10)
             
             
