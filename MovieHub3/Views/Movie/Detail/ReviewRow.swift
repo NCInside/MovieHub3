@@ -21,10 +21,19 @@ struct ReviewRow: View {
             VStack (alignment: .leading, spacing: 12) {
                 HStack {
                     HStack (alignment: .bottom) {
-                        Image(systemName: "person")
-                            .foregroundColor(.white)
-                            .font(.system(size: 32))
-                        Text("User")
+                        if ((review.user) != nil) {
+                            Image(review.user!)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(Circle())
+                                .scaledToFit()
+                                .frame(width: 75)
+                        } else {
+                            Image(systemName: "person")
+                                .foregroundColor(.white)
+                                .font(.system(size: 32))
+                        }
+                        Text(review.user ?? "User")
                             .foregroundColor(.white)
                             .font(.system(size: 24, weight: .medium, design: .default))
                     }

@@ -32,6 +32,8 @@ final class MovieDetailViewModel: ObservableObject {
     
     @Published var id: Int
     
+    private var names = ["Miles", "Gwen", "Peter", "Miguel", "Hobie"]
+    
     init(id: Int) {
         self.id = id
         
@@ -68,6 +70,7 @@ final class MovieDetailViewModel: ObservableObject {
     
     func addReview() {
         let newReview = Review(context: container.viewContext)
+        newReview.user = names.randomElement()
         newReview.comment = comment
         newReview.score = score
         newReview.movieID = Int16(id)
