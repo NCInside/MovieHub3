@@ -11,69 +11,71 @@ struct ProfileView: View {
     @EnvironmentObject var ticketviewmodel : TicketViewModel
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Image("profilepic")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 130, height: 130)
-                    .clipShape(Circle())
+        GeometryReader{ geo in
+            NavigationStack {
+                VStack {
+                    Image("profilepic")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 130, height: 130)
+                        .clipShape(Circle())
 
-                Text(userController.user.name)
-                    .font(.title)
-                    .padding()
-                    .foregroundColor(.white)
+                    Text(userController.user.name)
+                        .font(.system(size: geo.size.width/45, weight: .medium, design: .default))
+                        .padding()
+                        .foregroundColor(.white)
 
-                Text("Age: \(userController.user.age)")
-                    .font(.headline)
-                    .foregroundColor(.gray)
-
-                Text("Location: \(userController.user.location)")
-                    .font(.headline)
-                    .foregroundColor(.gray)
-
-                HStack {
-                    VStack {
-                        Text("\(userController.reviews.filter { $0.user == "User" }.count)")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                        Text("Movie Reviews")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                    .padding()
-                    
-                    Rectangle()
-                        .frame(width: 2, height: 50) 
+                    Text("Age: \(userController.user.age)")
+                        .font(.system(size: geo.size.width/60, weight: .medium, design: .default))
                         .foregroundColor(.gray)
 
-                    VStack {
-                        Text("\(ticketviewmodel.tickets.count)")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                        Text("Movies Watched")
-                            .font(.subheadline)
+                    Text("Location: \(userController.user.location)")
+                        .font(.system(size: geo.size.width/60, weight: .medium, design: .default))
+                        .foregroundColor(.gray)
+
+                    HStack {
+                        VStack {
+                            Text("\(userController.reviews.filter { $0.user == "User" }.count)")
+                                .font(.system(size: geo.size.width/45, weight: .light, design: .default))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Movie Reviews")
+                                .font(.system(size: geo.size.width/90, weight: .light, design: .default))
+                                .foregroundColor(.gray)
+                        }
+                        .padding()
+                        
+                        Rectangle()
+                            .frame(width: 2, height: 50)
                             .foregroundColor(.gray)
+
+                        VStack {
+                            Text("\(ticketviewmodel.tickets.count)")
+                                .font(.system(size: geo.size.width/45, weight: .light, design: .default))
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Movies Watched")
+                                .font(.system(size: geo.size.width/90, weight: .light, design: .default))
+                                .foregroundColor(.gray)
+                        }
+                        .padding()
                     }
-                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(10)
+                    
+                    MenuListView(size: geo.size.width)
+                    
+                    Spacer()
                 }
+                .padding()
                 .background(Color.black)
-                .cornerRadius(10)
+                .navigationTitle("Profile")
+            }.accentColor(.red)
+            .onAppear {
+                userController.fetchAllReviews()
+                ticketviewmodel.fetchAllTickets()
                 
-                MenuListView()
-                
-                Spacer()
             }
-            .padding()
-            .background(Color.black)
-            .navigationTitle("Profile")
-        }.accentColor(.red)
-        .onAppear {
-            userController.fetchAllReviews()
-            ticketviewmodel.fetchAllTickets()
-            
         }
     }
 }
