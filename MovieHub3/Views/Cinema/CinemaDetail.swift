@@ -17,45 +17,48 @@ struct CinemaDetail: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ScrollView{
-                MapView(coordinate: cinema.locationCoordinate)
-                    .ignoresSafeArea(edges: .top)
-                    .frame(height: 300)
+        GeometryReader{ geo in
+            NavigationStack {
+                ScrollView{
+                    MapView(coordinate: cinema.locationCoordinate)
+                        .ignoresSafeArea(edges: .top)
+                        .frame(height: 300)
 
-                VStack(alignment: .leading) {
-                    Text(cinema.name).font(.title)
-                    HStack {
-                        Image(systemName: "map.fill")
-                        Text(cinema.location)
-                    }
-                    HStack {
-                        Image(systemName: "phone.fill")
-                        Text(cinema.phone)
-                    }
-                    Divider()
-                }.padding(.leading)
-
-                Rectangle()
-                    .fill(Color.white)
-                    .frame(height: 4)
-                
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(viewModel.listmovies) {movie in
-                        NavigationLink {
-                            BuyTicketView(movie: movie, theaterid: cinema.id)
-                        } label: {
-                            CinemaMovieCard(movie: movie, theaterid: cinema.id)
+                    VStack(alignment: .leading) {
+                        Text(cinema.name).font(.title)
+                        HStack {
+                            Image(systemName: "map.fill")
+                            Text(cinema.location)
                         }
-                        .tag(movie)
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                }
+                        HStack {
+                            Image(systemName: "phone.fill")
+                            Text(cinema.phone)
+                        }
+                        Divider()
+                    }.padding(.leading)
 
-            }.background(.black)
-                .foregroundColor(.white)
+                    Rectangle()
+                        .fill(Color.white)
+                        .frame(height: 4)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(viewModel.listmovies) {movie in
+                            NavigationLink {
+                                BuyTicketView(movie: movie, theaterid: cinema.id, size: geo.size.width)
+                            } label: {
+                                CinemaMovieCard(movie: movie, theaterid: cinema.id, size: geo.size.width)
+                            }
+                            .tag(movie)
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+
+                }.background(.black)
+                    .foregroundColor(.white)
+            }
+            .accentColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
         }
-        .accentColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+        
     }
 }
 

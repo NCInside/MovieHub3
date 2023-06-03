@@ -33,7 +33,12 @@ struct CinemaList: View {
                         ScrollView{
                             ForEach(viewModel.theaters) { theater in
                                 NavigationLink {
+                                    #if os(macOS)
                                     CinemaDetail(cinema: theater,size: geo.size.width)
+                                    #endif
+                                    #if os(iOS)
+                                    CinemaDetail(cinema: theater)
+                                    #endif
                                 } label: {
                                     CinemaRow(cinema: theater, size: geo.size.width*13/15)
                                         .padding(.trailing, geo.size.width/15)
