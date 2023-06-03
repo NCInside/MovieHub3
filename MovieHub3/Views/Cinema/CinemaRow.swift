@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct CinemaRow: View {
+    var size: CGFloat
+    
     var cinema: Theater
     @StateObject private var viewModel: CinemaViewModel
     
-    init(cinema: Theater){
+    init(cinema: Theater, size: CGFloat){
         self.cinema = cinema
         self._viewModel = StateObject(wrappedValue: CinemaViewModel(id: cinema.id))
+        self.size = size
     }
 
     
@@ -41,31 +44,32 @@ struct CinemaRow: View {
                     HStack{
                         Image("cinema")
                             .resizable()
-                            .frame(width: 75, height: 75)
+                            .frame(width: size/15, height: size/15)
                         Text(cinema.name)
-                            .font(.system(size: 50, weight: .heavy, design: .default))
+                            .font(.system(size: size/23, weight: .light, design: .default))
 
                         Spacer()
                     }
                     HStack{
-                        Image(systemName: "chevron.right").frame(width: 50, height: 50).foregroundColor(Color.red)
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .frame(width: size/20, height: size/20)
+                            .foregroundColor(Color.red)
                     }
                 }
-                .frame(width: 1200, height: 75)
-
+                .frame(width: size, height: size/14)
                 .background(Color.black)
                 .foregroundColor(.white)
                 Rectangle()
                     .fill(Color.white)
                     .frame(height: 2)
-                    .frame(width: 1200, height: 75)
+                    .frame(width: size, height: size/14)
 
                 Rectangle()
                     .fill(Color.black)
                     .frame(height: 2)
             
             #endif
-            
         }
     }
 }
@@ -74,6 +78,6 @@ struct MovieRow_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        CinemaRow(cinema: modelData.theaters[1]).environmentObject(modelData)
+        CinemaRow(cinema: modelData.theaters[1], size: 40.0).environmentObject(modelData)
     }
 }

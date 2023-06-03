@@ -8,12 +8,14 @@ import SwiftUI
 import MapKit
 
 struct CinemaDetail: View {
+    var size: CGFloat
     var cinema: Theater
     @StateObject private var viewModel: CinemaViewModel
     
-    init(cinema: Theater){
+    init(cinema: Theater, size:CGFloat){
         self.cinema = cinema
         self._viewModel = StateObject(wrappedValue: CinemaViewModel(id: cinema.id))
+        self.size = size
     }
     
     var body: some View {
@@ -22,12 +24,12 @@ struct CinemaDetail: View {
             VStack{
                 MapView(coordinate: cinema.locationCoordinate)
                     .ignoresSafeArea(edges: .top)
-                    .frame(width: 500,height: 500)
+                    .frame(width: size/3,height: size/3)
                 
                 VStack(alignment: .leading, spacing: 0){
                     HStack{
                         Text(cinema.name)
-                            .font(.system(size: 45, weight: .heavy, design: .default))
+                            .font(.system(size: size/23, weight: .heavy, design: .default))
                     }
                     
                     
@@ -35,35 +37,32 @@ struct CinemaDetail: View {
                         Image(systemName: "map.fill")
                             .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                         Text(cinema.location)
-                            .font(.system(size: 25, weight: .light, design: .default))
+                            .font(.system(size: size/28, weight: .light, design: .default))
 
                     }
                     HStack {
                         Image(systemName: "phone.fill")
                             .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                         Text(cinema.phone)
-                            .font(.system(size: 25, weight: .light, design: .default))
+                            .font(.system(size: size/28, weight: .light, design: .default))
                     }
                 }
-                .offset(x: -50)
-
             }
-            .offset(x: 100)
+            .padding(.leading, size/20)
 
             ScrollView{
                 VStack{
                     ForEach(viewModel.listmovies) {movie in
                         NavigationLink {
-                            BuyTicketView(movie: movie, theaterid: cinema.id)
+                            BuyTicketView(movie: movie, theaterid: cinema.id, size: size)
                         } label: {
-                            CinemaMovieCard(movie: movie, theaterid: cinema.id)
+                            CinemaMovieCard(movie: movie, theaterid: cinema.id, size: size)
                         }
                         .tag(movie)
                         .buttonStyle(PlainButtonStyle())
                     }
-                }
+                }.padding(.top, size/20)
             }
-            .offset(y: 60)
 
             Spacer()
         }
@@ -75,6 +74,6 @@ struct CinemaDetail_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        CinemaDetail(cinema: modelData.theaters[1]).environmentObject(modelData)
+        CinemaDetail(cinema: modelData.theaters[1], size: 100.0).environmentObject(modelData)
     }
 }
