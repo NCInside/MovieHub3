@@ -32,7 +32,6 @@ struct TicketConfirmationView: View {
     }
     
     var body: some View {
-#if os(iOS)
         VStack{
             VStack{
                 HStack{
@@ -44,13 +43,13 @@ struct TicketConfirmationView: View {
                         Text(movie.title).font(.title).bold().foregroundColor(.white)
                         Text("\(movie.duration / 60)h \(movie.duration % 60)m | \(movie.rating)")
                             .font(.system(size: 14, weight: .medium, design: .default))
-                        let components = datetime.components(separatedBy: ",")
-                        let date = components.first?.trimmingCharacters(in: .whitespaces)
-                        let time = components.last?.trimmingCharacters(in: .whitespaces)
-                        
-                        Text("Date: \(date ?? "")")
-                        Text("Time: \(time ?? "")")
-                        
+                                    let components = datetime.components(separatedBy: ",")
+                                    let date = components.first?.trimmingCharacters(in: .whitespaces)
+                                    let time = components.last?.trimmingCharacters(in: .whitespaces)
+                                    
+                                    Text("Date: \(date ?? "")")
+                                    Text("Time: \(time ?? "")")
+                                
                         Text("Cinema : \(viewModel.theater.name)")
                     }
                 }
@@ -94,128 +93,25 @@ struct TicketConfirmationView: View {
                 }
                 Spacer()
             }.foregroundColor(.white)
-            
+
             Spacer()
-            
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Done")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.red)
-                    .cornerRadius(10)
-            }
-            .padding()
+                     
+                     Button(action: {
+                         presentationMode.wrappedValue.dismiss()
+                     }) {
+                         Text("Done")
+                             .foregroundColor(.white)
+                             .font(.headline)
+                             .padding()
+                             .frame(maxWidth: .infinity)
+                             .background(Color.red)
+                             .cornerRadius(10)
+                     }
+                     .padding()
             
         }.background(.black)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-        #endif
-#if os(macOS)
-VStack {
-    Spacer()
-    HStack {
-        VStack(alignment: .leading) {
-            Text(movie.title)
-                .font(.title)
-                .bold()
-                .foregroundColor(.white)
-            Text("\(movie.duration / 60)h \(movie.duration % 60)m | \(movie.rating)")
-                .font(.system(size: 14, weight: .medium, design: .default))
-            let components = datetime.components(separatedBy: ",")
-            let date = components.first?.trimmingCharacters(in: .whitespaces)
-            let time = components.last?.trimmingCharacters(in: .whitespaces)
-            
-            Text("Date: \(date ?? "")")
-            Text("Time: \(time ?? "")")
-            Text("Cinema: \(viewModel.theater.name)")
-        }
-        .padding()
-        .padding(.leading, 20) // Add trailing padding
-        
-        Spacer()
-        
-        movie.image
-            .resizable()
-            .frame(width: 100, height: 160)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding(20)
-            .padding(.bottom,2)
     }
-    .padding(.horizontal,30)
-    .background(
-        RoundedRectangle(cornerRadius: 10)
-            .fill(Color.red)
-            .shadow(radius: 4)
-            .padding(.vertical) // Add top padding
-    )
-    
-    HStack {
-        Text("Number of tickets: ")
-        Text("\(ticketAmount) people")
-    }
-    .padding()
-    
-    HStack {
-        Spacer()
-        Text("Total payment")
-        Spacer()
-        Text("\(viewModel.counttotal(ticketAmount))")
-        Spacer()
-    }
-    .foregroundColor(.white)
-    
-    Rectangle()
-        .fill(Color.white)
-        .frame(height: 2)
-    
-    VStack(alignment: .leading, spacing: 10) {
-        HStack {
-            Text("Ticket price")
-            Spacer()
-            Text("Rp 25.000 x \(ticketAmount)")
-        }
-        
-        HStack {
-            Text("Other fees")
-            Spacer()
-            Text("Rp 0")
-        }
-        
-        HStack {
-            Text("Discount")
-            Spacer()
-            Text("Rp 0")
-        }
-    }
-    .padding()
-    .foregroundColor(.white)
-    
-    
-    Button(action: {
-        presentationMode.wrappedValue.dismiss()
-    }) {
-        Text("Done")
-            .font(.headline)
-            .frame(height: 40)
-            .frame(maxWidth: .infinity)
-    }
-    .background(Color.red)
-    .foregroundColor(.red)
-    .cornerRadius(8)
-    .padding(.top, 20)
-    Spacer()
-}
-.padding(50)
-.background(Color.black)
-.frame(maxWidth: .infinity, maxHeight: .infinity)
-#endif
-
-
-    }
-    
         
 }
 

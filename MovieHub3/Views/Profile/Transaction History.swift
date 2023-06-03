@@ -29,7 +29,7 @@ struct Transaction_History: View {
                         .font(.system(size: 50))
                     }
                 }
-                .background(Color.black)
+                .background(Color.white)
             }
             #if os(iOS)
             .navigationBarTitle("Transactions", displayMode: .inline)
