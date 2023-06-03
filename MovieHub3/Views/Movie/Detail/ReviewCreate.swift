@@ -55,6 +55,7 @@ struct ReviewCreate: View {
             .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
             .foregroundColor(.red)
             .cornerRadius(8)
+            .buttonStyle(.plain)
 
             
             Spacer()

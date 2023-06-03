@@ -35,7 +35,7 @@ struct ReviewRow: View {
                                 .aspectRatio(contentMode: .fit)
                                 .clipShape(Circle())
                                 .scaledToFit()
-                                .frame(width: size * 0.15)
+                                .frame(width: size * (isIOS() ? 0.15 : 0.1))
                         } else {
                             Image(systemName: "person")
                                 .foregroundColor(.white)
@@ -43,18 +43,18 @@ struct ReviewRow: View {
                         }
                         Text(review.user ?? "User")
                             .foregroundColor(.white)
-                            .font(.system(size: size * 0.05, weight: .medium, design: .default))
+                            .font(.system(size: size * (isIOS() ? 0.05 : 0.033), weight: .medium, design: .default))
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     HStack(alignment: .bottom, spacing: 1) {
                         ForEach (0..<(Int(review.score)+1), id: \.self) {_ in
                             Image(systemName: "star.fill")
-                                .font(.system(size: size * 0.03))
+                                .font(.system(size: size * (isIOS() ? 0.03 : 0.02)))
                                 .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                         }
                         ForEach (0..<Int(5-review.score), id: \.self) {_ in
                             Image(systemName: "star")
-                                .font(.system(size: size * 0.03))
+                                .font(.system(size: size * (isIOS() ? 0.03 : 0.02)))
                                 .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                         }
                     }
@@ -65,7 +65,7 @@ struct ReviewRow: View {
                 } label: {
                     Text(review.comment ?? "")
                         .foregroundColor(.white)
-                        .font(.system(size: size * 0.03125))
+                        .font(.system(size: size * (isIOS() ? 0.03125 : 0.02)))
                         .multilineTextAlignment(.leading)
                         .lineLimit(isViewed ? 15 : 5)
                         .padding()
@@ -84,7 +84,7 @@ struct ReviewRow_Previews: PreviewProvider {
     static let modelData = ModelData()
     
     static var previews: some View {
-        MovieDetail(movie: modelData.movies[0])
+        MovieDetail(movie: modelData.movies[2])
             .environmentObject(modelData)
             #if !os(iOS)
             .frame(width: 1000, height: 1000)
