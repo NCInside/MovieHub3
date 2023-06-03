@@ -19,7 +19,7 @@
     {
         "id": 1,
         "title": "Inception",
-        "score": 4.4,
+        "score": 3.4,
         "genres": ["Action", "Adventure", "Sci-Fi"],
         "rating": "PG-13",
         "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
@@ -70,7 +70,7 @@
     {
         "id": 4,
         "title": "The Matrix",
-        "score": 4.9,
+        "score": 2.9,
         "genres": ["Action", "Sci-Fi"],
         "rating": "R",
         "synopsis": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against the controllers of it.",
