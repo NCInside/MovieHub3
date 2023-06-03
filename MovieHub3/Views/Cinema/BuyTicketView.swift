@@ -260,15 +260,22 @@ VStack {
                                             Text(time.date.prefix(5))
                                                 .font(.system(size: size/90, weight: .medium, design: .default))
                                         )
-                                    ForEach(time.hours, id: \.self) {hour in
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
-                                            .frame(width: size/25, height: size/50)
-                                            .overlay(
-                                                Text(hour)
-                                                    .font(.system(size: size/90, weight: .medium, design: .default))
-                                                    .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                                            )
+                                    ForEach(time.hours, id: \.self) { hour in
+                                        Button(action: {
+                                            datetime = time.date + ", " + hour
+                                        }) {
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
+                                                .frame(width: size/25, height: size/50)
+                                                .overlay(
+                                                    Text(hour)
+                                                        .font(.system(size: size/90, weight: .medium, design: .default))
+                                                        .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+                                                )
+                                            
+                                        }
+                                        .buttonStyle(.plain)
+
                                     }
                                 }
                             }
