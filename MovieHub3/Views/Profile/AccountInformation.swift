@@ -43,7 +43,7 @@ struct AccountInformation: View {
             .padding(.vertical, 40)
             .foregroundColor(.white)
         }
-        .accentColor(.red) // Set the accent color to red
+        .accentColor(.red) 
         .navigationBarItems(trailing: Button(action: saveUserData) {
             Text("Save")
                 .foregroundColor(.red)
@@ -88,11 +88,11 @@ struct AttributeTextField: View {
         VStack(alignment: .leading) {
             Text(title)
                 .font(.headline)
-                .foregroundColor(.red) // Set the text color to red
+                .foregroundColor(.red)
             
             TextField("", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .foregroundColor(.red) // Set the text color to red
+                .foregroundColor(.red)
         }
     }
 }
@@ -105,11 +105,11 @@ struct AttributeSecureField: View {
         VStack(alignment: .leading) {
             Text(title)
                 .font(.headline)
-                .foregroundColor(.red) // Set the text color to red
+                .foregroundColor(.red)
             
             SecureField("", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .foregroundColor(.red) // Set the text color to red
+                .foregroundColor(.red)
         }
     }
 }

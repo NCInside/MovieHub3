@@ -15,7 +15,6 @@ class UserController: ObservableObject {
     let persistentContainer: NSPersistentContainer
     
     init() {
-        // Retrieve the saved user data or set default values
         if let data = UserDefaults.standard.data(forKey: "user"),
            let savedUser = try? JSONDecoder().decode(User.self, from: data) {
             self.user = savedUser

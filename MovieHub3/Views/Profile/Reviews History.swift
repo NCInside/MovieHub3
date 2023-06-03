@@ -10,6 +10,7 @@ struct Reviews_History: View {
     @EnvironmentObject private var userController: UserController
     
     var body: some View {
+        #if os(iOS)
         NavigationView {
             ZStack {
                 Color.black
@@ -26,7 +27,7 @@ struct Reviews_History: View {
                             .foregroundColor(.gray)
                     } else {
                         List(userController.reviews, id: \.id) { review in
-                            if review.user == "User" { // Replace "User" with the desired condition for user filtering
+                            if review.user == "User" {
                                 ReviewsRow(review: review)
                                     .environmentObject(userController)
                                     .padding(.vertical, 8)
@@ -45,7 +46,9 @@ struct Reviews_History: View {
         .onAppear {
             userController.fetchAllReviews()
         }
+        #endif
     }
+    
 }
 
 struct ReviewsRow: View {

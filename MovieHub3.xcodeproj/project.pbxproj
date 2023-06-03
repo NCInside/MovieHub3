@@ -88,10 +88,14 @@
 		04F9A3152A23666A005EB938 /* TicketConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9A3142A23666A005EB938 /* TicketConfirmationView.swift */; };
 		04F9A3172A24705E005EB938 /* CinemaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9A3162A24705E005EB938 /* CinemaList.swift */; };
 		04F9A3192A247097005EB938 /* CinemaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9A3182A247097005EB938 /* CinemaRow.swift */; };
+		BF8DDC552A2B13B9008547BA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D181462A1EF5A3007989D8 /* ProfileView.swift */; };
+		BF8DDC562A2B13C7008547BA /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D181452A1EF5A3007989D8 /* MenuListView.swift */; };
+		BF8DDC572A2B13CD008547BA /* AccountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC20D2A23C2A900C6FA18 /* AccountInformation.swift */; };
+		BF8DDC582A2B13D0008547BA /* Transaction History.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC20F2A23C2B800C6FA18 /* Transaction History.swift */; };
+		BF8DDC5A2A2B1437008547BA /* Reviews History.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2112A23C2C700C6FA18 /* Reviews History.swift */; };
 		BFAEC20E2A23C2A900C6FA18 /* AccountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC20D2A23C2A900C6FA18 /* AccountInformation.swift */; };
 		BFAEC2102A23C2B800C6FA18 /* Transaction History.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC20F2A23C2B800C6FA18 /* Transaction History.swift */; };
 		BFAEC2122A23C2C700C6FA18 /* Reviews History.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2112A23C2C700C6FA18 /* Reviews History.swift */; };
-		BFAEC2142A23C2D100C6FA18 /* Watchlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2132A23C2D100C6FA18 /* Watchlist.swift */; };
 		BFAEC2182A23C8CA00C6FA18 /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = BFAEC2172A23C8CA00C6FA18 /* userData.json */; };
 		BFAEC21A2A23C94200C6FA18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2192A23C94200C6FA18 /* User.swift */; };
 		BFAEC2222A29045500C6FA18 /* TicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAEC2212A29045500C6FA18 /* TicketViewModel.swift */; };
@@ -150,7 +154,6 @@
 		BFAEC20D2A23C2A900C6FA18 /* AccountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformation.swift; sourceTree = "<group>"; };
 		BFAEC20F2A23C2B800C6FA18 /* Transaction History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction History.swift"; sourceTree = "<group>"; };
 		BFAEC2112A23C2C700C6FA18 /* Reviews History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reviews History.swift"; sourceTree = "<group>"; };
-		BFAEC2132A23C2D100C6FA18 /* Watchlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watchlist.swift; sourceTree = "<group>"; };
 		BFAEC2172A23C8CA00C6FA18 /* userData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
 		BFAEC2192A23C94200C6FA18 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BFAEC2212A29045500C6FA18 /* TicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewModel.swift; sourceTree = "<group>"; };
@@ -299,7 +302,6 @@
 				BFAEC20D2A23C2A900C6FA18 /* AccountInformation.swift */,
 				BFAEC20F2A23C2B800C6FA18 /* Transaction History.swift */,
 				BFAEC2112A23C2C700C6FA18 /* Reviews History.swift */,
-				BFAEC2132A23C2D100C6FA18 /* Watchlist.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -467,8 +469,11 @@
 				042056132A2A26C900FF606F /* Detail.swift in Sources */,
 				040B21B82A236A0700C3B1B2 /* MovieTime.swift in Sources */,
 				0420560F2A2A1D0A00FF606F /* UserController.swift in Sources */,
+				BF8DDC582A2B13D0008547BA /* Transaction History.swift in Sources */,
 				0420561B2A2A2F9400FF606F /* CinemaRow.swift in Sources */,
+				BF8DDC562A2B13C7008547BA /* MenuListView.swift in Sources */,
 				040B21C22A236A2C00C3B1B2 /* MovieViewModel.swift in Sources */,
+				BF8DDC5A2A2B1437008547BA /* Reviews History.swift in Sources */,
 				040B21C92A2398A500C3B1B2 /* MovieList.swift in Sources */,
 				042056192A2A2F7600FF606F /* CinemaList.swift in Sources */,
 				042056212A2A343E00FF606F /* CinemaMovieCard.swift in Sources */,
@@ -487,9 +492,11 @@
 				042056202A2A343B00FF606F /* CinemaMovieViewModel.swift in Sources */,
 				0420560E2A2A1D0600FF606F /* TicketViewModel.swift in Sources */,
 				040B21AD2A2363BF00C3B1B2 /* ContentView.swift in Sources */,
+				BF8DDC572A2B13CD008547BA /* AccountInformation.swift in Sources */,
 				040B21C32A236A2C00C3B1B2 /* MovieDetailViewModel.swift in Sources */,
 				042056122A2A1D4D00FF606F /* MovieDetail.swift in Sources */,
 				0420561C2A2A2FB400FF606F /* CinemaViewModel.swift in Sources */,
+				BF8DDC552A2B13B9008547BA /* ProfileView.swift in Sources */,
 				042056222A2A344900FF606F /* TicketConfirmationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,7 +540,6 @@
 				04F09E832A2103E400E8F263 /* MovieDetailViewModel.swift in Sources */,
 				043ED2DD2A26F4E200A5A114 /* CinemaListViewModel.swift in Sources */,
 				04F09E802A20EF7400E8F263 /* MovieViewModel.swift in Sources */,
-				BFAEC2142A23C2D100C6FA18 /* Watchlist.swift in Sources */,
 				04F9A3172A24705E005EB938 /* CinemaList.swift in Sources */,
 				0418F4A22A21D06F006D5B50 /* Theater.swift in Sources */,
 				04D181382A1EF543007989D8 /* ModelData.swift in Sources */,
@@ -556,7 +562,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MacMovieHub3/Preview Content\"";
-				DEVELOPMENT_TEAM = 592BA54XZ3;
+				DEVELOPMENT_TEAM = M853XY9U3D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -585,7 +591,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MacMovieHub3/Preview Content\"";
-				DEVELOPMENT_TEAM = 592BA54XZ3;
+				DEVELOPMENT_TEAM = M853XY9U3D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -726,7 +732,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieHub3/Preview Content\"";
-				DEVELOPMENT_TEAM = 592BA54XZ3;
+				DEVELOPMENT_TEAM = M853XY9U3D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -755,7 +761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieHub3/Preview Content\"";
-				DEVELOPMENT_TEAM = 592BA54XZ3;
+				DEVELOPMENT_TEAM = M853XY9U3D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

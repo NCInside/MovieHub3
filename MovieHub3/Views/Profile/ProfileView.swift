@@ -6,18 +6,12 @@
 //
 import SwiftUI
 
-struct ProfileMenu: Identifiable {
-    let id = UUID()
-    let title: String
-    let destination: AnyView // Added a property to hold the destination view
-}
-
 struct ProfileView: View {
     @EnvironmentObject var userController: UserController
     @EnvironmentObject var ticketviewmodel : TicketViewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Image("profilepic")
                     .resizable()
@@ -25,16 +19,16 @@ struct ProfileView: View {
                     .frame(width: 130, height: 130)
                     .clipShape(Circle())
 
-                Text(userController.user.name) // Use the name from the user controller
+                Text(userController.user.name)
                     .font(.title)
                     .padding()
                     .foregroundColor(.white)
 
-                Text("Age: \(userController.user.age)") // Use the age from the user controller
+                Text("Age: \(userController.user.age)")
                     .font(.headline)
                     .foregroundColor(.gray)
 
-                Text("Location: \(userController.user.location)") // Use the location from the user controller
+                Text("Location: \(userController.user.location)")
                     .font(.headline)
                     .foregroundColor(.gray)
 
@@ -50,8 +44,8 @@ struct ProfileView: View {
                     }
                     .padding()
                     
-                    Rectangle() // Add a Rectangle as a shorter vertical line
-                        .frame(width: 2, height: 50) // Adjust the height as per your preference
+                    Rectangle()
+                        .frame(width: 2, height: 50) 
                         .foregroundColor(.gray)
 
                     VStack {
@@ -68,7 +62,7 @@ struct ProfileView: View {
                 .background(Color.black)
                 .cornerRadius(10)
                 
-                MenuListView() // Pass the user controller to the MenuListView
+                MenuListView()
                 
                 Spacer()
             }
