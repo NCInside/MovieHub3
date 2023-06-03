@@ -15,6 +15,14 @@ final class CinemaMovieViewModel: ObservableObject {
     private var theaters: [Theater]
     private var movieTimes: [MovieTime]
     
+    func counttotal(_ string: String) -> Int {
+        if let intValue = Int(string) {
+            return intValue*25000
+        } else {
+            return 0
+        }
+    }
+
     init(idmovietheater: Int, theaterid: Int) {
         theaterMovies = ModelData.load("theaterMovieData.json")
         theaters = ModelData.load("theaterData.json")

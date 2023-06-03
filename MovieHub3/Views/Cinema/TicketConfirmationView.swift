@@ -12,13 +12,12 @@ struct TicketConfirmationView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    
+        
     var movie: Movie
     var showtime: (theater: Theater, movietimes: [MovieTime])!
-
     @StateObject private var viewModel: CinemaMovieViewModel
     var theaterid: Int
-    
+    @Environment(\.presentationMode) var presentationMode
     @Binding var datetime: String
     @Binding var ticketAmount:String
 
@@ -29,6 +28,7 @@ struct TicketConfirmationView: View {
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
         self.theaterid = theaterid
         self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
+        
     }
     
     var body: some View {
@@ -43,8 +43,13 @@ struct TicketConfirmationView: View {
                         Text(movie.title).font(.title).bold().foregroundColor(.white)
                         Text("\(movie.duration / 60)h \(movie.duration % 60)m | \(movie.rating)")
                             .font(.system(size: 14, weight: .medium, design: .default))
-                        Text("Date : \(datetime)")
-                        Text("Time : \(datetime)")
+                                    let components = datetime.components(separatedBy: ",")
+                                    let date = components.first?.trimmingCharacters(in: .whitespaces)
+                                    let time = components.last?.trimmingCharacters(in: .whitespaces)
+                                    
+                                    Text("Date: \(date ?? "")")
+                                    Text("Time: \(time ?? "")")
+                                
                         Text("Cinema : \(viewModel.theater.name)")
                     }
                 }
@@ -65,7 +70,7 @@ struct TicketConfirmationView: View {
                 Spacer()
                 Text("Total payment")
                 Spacer()
-                Text("25.000")
+                Text("\(viewModel.counttotal(ticketAmount))")
                 Spacer()
             }.foregroundColor(.white)
             
@@ -82,19 +87,34 @@ struct TicketConfirmationView: View {
                 }
                 Spacer()
                 VStack(alignment: .leading){
-                    Text("Rp 25.000 x 1")
+                    Text("Rp 25.000 x \(ticketAmount)")
                     Text("Rp 0")
                     Text("Rp 0")
                 }
                 Spacer()
             }.foregroundColor(.white)
 
+            Spacer()
+                     
+                     Button(action: {
+                         presentationMode.wrappedValue.dismiss()
+                     }) {
+                         Text("Done")
+                             .foregroundColor(.white)
+                             .font(.headline)
+                             .padding()
+                             .frame(maxWidth: .infinity)
+                             .background(Color.red)
+                             .cornerRadius(10)
+                     }
+                     .padding()
             
         }.background(.black)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
         
 }
+
 
 struct TicketConfirmationView_Previews: PreviewProvider {
     static var movies = ModelData().movies

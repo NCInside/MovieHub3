@@ -20,7 +20,7 @@ class UserController: ObservableObject {
            let savedUser = try? JSONDecoder().decode(User.self, from: data) {
             self.user = savedUser
         } else {
-            self.user = User(id: "1", email: "", password: "", phone: "", profilePic: "", name: "", age: 0, location: "")
+            self.user = User(id: "1", email: "vincent@email.com", password: "vincent", phone: "0812345654", profilePic: "profilepic", name: "Vincent", age: 20, location: "Surabaya")
         }
         
         persistentContainer = NSPersistentContainer(name: "MovieHub3")

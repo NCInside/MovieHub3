@@ -19,10 +19,10 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("inception")
+                Image("profilepic")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 100, height: 100)
+                    .frame(width: 130, height: 130)
                     .clipShape(Circle())
 
                 Text(userController.user.name) // Use the name from the user controller
@@ -40,7 +40,7 @@ struct ProfileView: View {
 
                 HStack {
                     VStack {
-                        Text("\(userController.reviews.count)")
+                        Text("\(userController.reviews.filter { $0.user == "User" }.count)")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -75,7 +75,7 @@ struct ProfileView: View {
             .padding()
             .background(Color.black)
             .navigationTitle("Profile")
-        }
+        }.accentColor(.red)
         .onAppear {
             userController.fetchAllReviews()
             ticketviewmodel.fetchAllTickets()

@@ -26,7 +26,7 @@ struct MenuListView: View {
             Menu(title: "Account Information", destination: { AccountInformation().environmentObject(userController) }),
             Menu(title: "Transactions History", destination: { Transaction_History().environmentObject(userController) }),
             Menu(title: "Reviews History", destination: { Reviews_History().environmentObject(userController) }),
-            Menu(title: "Liked Movies", destination: { Watchlist().environmentObject(userController) }),
+//            Menu(title: "Liked Movies", destination: { Watchlist().environmentObject(userController) }),
             Menu(title: "Logout", destination: { AccountInformation().environmentObject(userController) })
         ]
     }

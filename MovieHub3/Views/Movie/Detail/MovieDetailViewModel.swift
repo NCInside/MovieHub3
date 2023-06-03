@@ -32,7 +32,7 @@ final class MovieDetailViewModel: ObservableObject {
     
     @Published var id: Int
     
-    private var names = ["Miles", "Gwen", "Peter", "Miguel", "Hobie"]
+    private var names = ["Miles", "Gwen", "Peter", "Miguel", "Hobie" , "User"]
     
     init(id: Int) {
         self.id = id
