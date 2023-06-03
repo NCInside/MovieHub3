@@ -93,18 +93,20 @@ struct BuyTicketView: View {
                                             )
                                         Spacer()
                                     }
-                                    HStack {
-                                        ForEach(time.hours, id: \.self) { hour in
-                                            Button(action: {
-                                                datetime = time.date + ", " + hour
-                                            }) {
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
-                                                    .frame(width: 50, height: 30)
-                                                    .overlay(
-                                                        Text(hour)
-                                                            .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                                                    )
+                                    ScrollView(.horizontal) {
+                                        HStack{
+                                            ForEach(time.hours, id: \.self) { hour in
+                                                Button(action: {
+                                                    datetime = time.date + ", " + hour
+                                                }) {
+                                                    RoundedRectangle(cornerRadius: 20)
+                                                        .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
+                                                        .frame(width: 50, height: 30)
+                                                        .overlay(
+                                                            Text(hour)
+                                                                .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+                                                        )
+                                                }
                                             }
                                         }
                                     }
