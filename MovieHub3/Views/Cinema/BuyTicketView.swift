@@ -177,7 +177,7 @@ struct BuyTicketView: View {
             movie = self.movie
         }
         #endif
-        
+        #if os(macOS)
         VStack {
             HStack {
                 Spacer()
@@ -271,7 +271,7 @@ struct BuyTicketView: View {
             .padding(25)
             .background(Color.black)
         }
-        
+        #endif
     }
     
 }
