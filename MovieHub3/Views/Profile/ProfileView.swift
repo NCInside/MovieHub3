@@ -35,7 +35,7 @@ struct ProfileView: View {
 
                     HStack {
                         VStack {
-                            Text("\(userController.reviews.filter { $0.user == "User" }.count)")
+                            Text("\(userController.reviews.filter { $0.user == "You" }.count)")
                                 .font(.system(size: geo.size.width/45, weight: .light, design: .default))
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
