@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BuyTicketView: View {
+    var size: CGFloat
+    
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -23,7 +25,8 @@ struct BuyTicketView: View {
     @State var datetime: String = ""
     @State var ticketAmount: String = ""
 
-    init(movie: Movie, theaterid: Int) {
+    init(movie: Movie, theaterid: Int, size: CGFloat) {
+        self.size = size
         self._movie = State(initialValue: movie)
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
         self._theaterid = State(initialValue: theaterid)
@@ -187,6 +190,8 @@ VStack {
         VStack {
             HStack {
                 Text("Ticket amount:")
+                    .font(.system(size: size/50, weight: .light, design: .default))
+
                 TextField("Enter a number", text: $ticketAmount)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
@@ -196,8 +201,10 @@ VStack {
             .foregroundColor(.white)
             
             HStack {
-                Text("Showtime:")
-                Text(datetime)
+                Text("Ticket date  :")
+                    .font(.system(size: size/50, weight: .light, design: .default))
+
+                TextField("Enter a number", text: $datetime)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                     .foregroundColor(.white)
@@ -206,7 +213,7 @@ VStack {
             }
             .foregroundColor(.white)
         }
-        .frame(width: 700)
+        .frame(width: size/2, height: size/3)
         Spacer()
         
         // Movie banner and info
@@ -215,51 +222,53 @@ VStack {
                 // Banner
                 movie.image
                     .resizable()
-                    .frame(width: 170, height: 270)
+                    .frame(width: size/6, height: size/4)
                 
                 // Info
                 VStack {
                     HStack(spacing: 3) {
-                        ForEach(0..<(Int(movie.score) + 1), id: \.self) { _ in
+                        ForEach (0..<(Int(movie.score)+1), id: \.self) {_ in
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color(red: 255/255.0, green: 192/255.0, blue: 69/255.0))
                         }
-                        ForEach(0..<Int(5 - movie.score), id: \.self) { _ in
+                        ForEach (0..<Int(5-movie.score), id: \.self) {_ in
                             Image(systemName: "star")
                                 .foregroundColor(Color(red: 255/255.0, green: 192/255.0, blue: 69/255.0))
                         }
                     }
-                    
+
                     Text(movie.title)
-                        .font(.system(size: 18, weight: .heavy, design: .default))
+                        .font(.system(size: size/37, weight: .heavy, design: .default))
                         .foregroundColor(.white)
                         .padding(.top, 5)
                     Text("\(movie.genres[0]) | \(movie.duration / 60)h \(movie.duration % 60)m | \(movie.rating)")
-                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .font(.system(size: size/40, weight: .medium, design: .default))
                         .foregroundColor(.gray)
                         .padding(.top, 1)
                     
                     HStack {
                         Text("Showtime: ")
-                            .font(.system(size: 14, weight: .medium, design: .default))
+                            .font(.system(size: size/90, weight: .medium, design: .default))
                         
                         VStack(alignment: .leading) {
-                            ForEach(showtime.movietimes, id: \.self) { time in
+                            ForEach(showtime.movietimes, id: \.self) {time in
                                 HStack {
                                     Capsule()
                                         .fill(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                                        .frame(width: 80, height: 30)
+                                        .frame(width: size/25, height: size/50)
                                         .overlay(
                                             Text(time.date.prefix(5))
+                                                .font(.system(size: size/90, weight: .medium, design: .default))
                                         )
-                                    ForEach(time.hours, id: \.self) { hour in
-                                        Button(action: {
-                                            datetime = time.date + ", " + hour
-                                        }) {
-                                            Text(hour).foregroundColor(.white)
-                                        }
-                                        .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                                        .frame(width: 80, height: 30)
+                                    ForEach(time.hours, id: \.self) {hour in
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
+                                            .frame(width: size/25, height: size/50)
+                                            .overlay(
+                                                Text(hour)
+                                                    .font(.system(size: size/90, weight: .medium, design: .default))
+                                                    .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+                                            )
                                     }
                                 }
                             }
@@ -284,6 +293,14 @@ VStack {
             .font(.headline)
             .frame(height: 40)
             .frame(maxWidth: .infinity)
+
+            .frame(maxWidth: size*2/3)
+            .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+            .cornerRadius(0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
+            )
     }
     .background(Color.red)
     .foregroundColor(.red)
@@ -331,6 +348,6 @@ struct BuyTicketView_Previews: PreviewProvider {
     static var movies = ModelData().movies
 
     static var previews: some View {
-        BuyTicketView(movie: movies[0], theaterid: 2)
+        BuyTicketView(movie: movies[0], theaterid: 2, size: 100.0)
     }
 }
