@@ -29,7 +29,9 @@ struct AccountInformation: View {
                         .foregroundColor(.white)
                     AttributeTextField(title: "Name", text: $name)
                     AttributeTextField(title: "Age", text: $age)
+                    #if os(iOS)
                         .keyboardType(.numberPad)
+                    #endif
                     AttributeTextField(title: "Location", text: $location)
                     AttributeTextField(title: "Email", text: $email)
                     AttributeSecureField(title: "Password", text: $password)
@@ -43,11 +45,13 @@ struct AccountInformation: View {
             .padding(.vertical, 40)
             .foregroundColor(.white)
         }
-        .accentColor(.red) 
+        .accentColor(.red)
+        #if os(iOS)
         .navigationBarItems(trailing: Button(action: saveUserData) {
             Text("Save")
                 .foregroundColor(.red)
         })
+        #endif
         .accentColor(.red) 
         .onAppear {
             loadUserData()

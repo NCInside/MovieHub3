@@ -31,7 +31,9 @@ struct Transaction_History: View {
                 }
                 .background(Color.black)
             }
+            #if os(iOS)
             .navigationBarTitle("Transactions", displayMode: .inline)
+            #endif
         .onAppear {
             ticketViewModel.fetchAllTickets()
         }
