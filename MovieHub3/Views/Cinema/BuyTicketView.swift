@@ -196,8 +196,8 @@ VStack {
             .foregroundColor(.white)
             
             HStack {
-                Text("Ticket amount:")
-                TextField("Enter a number", text: $datetime)
+                Text("Showtime:")
+                Text(datetime)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                     .foregroundColor(.white)
@@ -282,32 +282,45 @@ VStack {
     }) {
         Text("Confirm order")
             .font(.headline)
-            .foregroundColor(.white)
             .frame(height: 40)
             .frame(maxWidth: .infinity)
-            .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-            .cornerRadius(0)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
-            )
     }
+    .background(Color.red)
+    .foregroundColor(.red)
+    .cornerRadius(8)
+    .background(
+        NavigationLink(
+            destination: TicketConfirmationView(
+                movie: movie,
+                theaterid: viewModel.theater.id,
+                datetime: $datetime,
+                ticketAmount: $ticketAmount
+            ),
+            isActive: $isTicketConfirmed,
+            label: {
+                EmptyView()
+            })
+        .hidden()
+    )
+   
+//    Button(action: {
+//        presentationMode.wrappedValue.dismiss()
+//    }) {
+//        Text("Done")
+//            .foregroundColor(.white)
+//            .font(.headline)
+//            .padding()
+//            .frame(maxWidth: .infinity)
+//            .background(Color.red)
+//            .cornerRadius(10)
+//    }
+//    .padding()
+    
     .padding()
     
-    NavigationLink(
-        destination: TicketConfirmationView(
-            movie: movie,
-            theaterid: viewModel.theater.id,
-            datetime: $datetime,
-            ticketAmount: $ticketAmount
-        ),
-        isActive: $isTicketConfirmed,
-        label: {
-            EmptyView()
-        })
+   
 }
 #endif
-
 
     }
     
