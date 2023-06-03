@@ -11,6 +11,13 @@ struct ReviewRow: View {
     
     var review: Review
     var size: CGFloat
+    private let isIOS = {
+        #if os(iOS)
+        return true
+        #else
+        return false
+        #endif
+    }
     @State var isViewed = false
     
     var body: some View {
@@ -63,6 +70,7 @@ struct ReviewRow: View {
                         .lineLimit(isViewed ? 15 : 5)
                         .padding()
                 }
+                .buttonStyle(.plain)
             }
             
             Spacer()
@@ -76,6 +84,10 @@ struct ReviewRow_Previews: PreviewProvider {
     static let modelData = ModelData()
     
     static var previews: some View {
-        MovieDetail(movie: modelData.movies[0]).environmentObject(modelData)
+        MovieDetail(movie: modelData.movies[0])
+            .environmentObject(modelData)
+            #if !os(iOS)
+            .frame(width: 1000, height: 1000)
+            #endif
     }
 }

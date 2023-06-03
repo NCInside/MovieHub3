@@ -32,6 +32,7 @@ struct Reviews: View {
             #endif
             .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
             .cornerRadius(10)
+            .buttonStyle(.plain)
         }
     }
 }
