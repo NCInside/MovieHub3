@@ -14,33 +14,49 @@ struct ProfileView: View {
         GeometryReader{ geo in
             NavigationStack {
                 VStack {
-                    Image("profilepic")
+                    Image("You")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 130, height: 130)
                         .clipShape(Circle())
+                    #if os(macOS)
+                        .padding(.top,150)
+                    #endif
 
                     Text(userController.user.name)
+                        .font(.title)
+                        #if os(macOS)
                         .font(.system(size: geo.size.width/45, weight: .medium, design: .default))
-                        .padding()
+                        #endif
+                        .padding(.bottom,2)
                         .foregroundColor(.white)
 
                     Text("Age: \(userController.user.age)")
+                        .font(.headline)
+                        #if os(macOS)
                         .font(.system(size: geo.size.width/60, weight: .medium, design: .default))
+                        #endif
                         .foregroundColor(.gray)
 
                     Text("Location: \(userController.user.location)")
+                        .font(.headline)
+                        #if os(macOS)
                         .font(.system(size: geo.size.width/60, weight: .medium, design: .default))
+                        #endif
                         .foregroundColor(.gray)
 
                     HStack {
                         VStack {
                             Text("\(userController.reviews.filter { $0.user == "You" }.count)")
+                            #if os(macOS)
                                 .font(.system(size: geo.size.width/45, weight: .light, design: .default))
+                            #endif
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                             Text("Movie Reviews")
+                                #if os(macOS)
                                 .font(.system(size: geo.size.width/90, weight: .light, design: .default))
+                                #endif
                                 .foregroundColor(.gray)
                         }
                         .padding()
@@ -51,11 +67,15 @@ struct ProfileView: View {
 
                         VStack {
                             Text("\(ticketviewmodel.tickets.count)")
+                                #if os(macOS)
                                 .font(.system(size: geo.size.width/45, weight: .light, design: .default))
+                                #endif
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                             Text("Movies Watched")
+                                #if os(macOS)
                                 .font(.system(size: geo.size.width/90, weight: .light, design: .default))
+                                #endif
                                 .foregroundColor(.gray)
                         }
                         .padding()
