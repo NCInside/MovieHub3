@@ -14,11 +14,14 @@ struct ProfileView: View {
         GeometryReader{ geo in
             NavigationStack {
                 VStack {
-                    Image("profilepic")
+                    Image("You")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 130, height: 130)
                         .clipShape(Circle())
+                    #if os(macOS)
+                        .padding(.top,150)
+                    #endif
 
                     Text(userController.user.name)
                         .font(.system(size: geo.size.width/45, weight: .medium, design: .default))

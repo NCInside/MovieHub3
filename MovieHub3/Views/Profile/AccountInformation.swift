@@ -8,6 +8,7 @@ import SwiftUI
 
 struct AccountInformation: View {
     @EnvironmentObject private var userController: UserController
+    @Environment(\.presentationMode) var presentationMode
     
     @State private var email: String = ""
     @State private var password: String = ""
@@ -39,7 +40,22 @@ struct AccountInformation: View {
                 }
                 .accentColor(.red)
                 .padding(.horizontal, 20)
-                
+                #if os(macOS)
+                Button(action: {
+                    saveUserData()
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Save")
+                        .font(.headline)
+                        .frame(height: 40)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+                .foregroundColor(.red)
+                .cornerRadius(8)
+                .padding(.top, 20)
+                .padding(.horizontal, 30)
+                #endif
                 Spacer()
             }
             .padding(.vertical, 40)
@@ -47,7 +63,10 @@ struct AccountInformation: View {
         }
         .accentColor(.red)
         #if os(iOS)
-        .navigationBarItems(trailing: Button(action: saveUserData) {
+        .navigationBarItems(trailing: Button(action: {
+                       saveUserData()
+                       presentationMode.wrappedValue.dismiss()
+                   }){
             Text("Save")
                 .foregroundColor(.red)
         })
@@ -96,7 +115,12 @@ struct AttributeTextField: View {
             
             TextField("", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .foregroundColor(.red)
+                #if os(macOS)
+                .foregroundColor(.white)
+                #elseif os(iOS)
+                .foregroundColor(.black)
+                #endif
+            
         }
     }
 }

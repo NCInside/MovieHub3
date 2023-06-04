@@ -96,6 +96,7 @@ struct ReviewsRow: View {
                         .multilineTextAlignment(.leading)
                         .lineLimit(isExpanded ? nil : 3)
                         .padding(.top)
+                    
                 }
             }
             .padding()
