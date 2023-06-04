@@ -49,12 +49,14 @@ struct AccountInformation: View {
                         .font(.headline)
                         .frame(height: 40)
                         .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
                 }
                 .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                .foregroundColor(.red)
+                .buttonStyle(.plain)
                 .cornerRadius(8)
                 .padding(.top, 20)
                 .padding(.horizontal, 30)
+                .foregroundColor(Color.white)
                 #endif
                 Spacer()
             }

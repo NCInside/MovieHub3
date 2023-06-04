@@ -201,8 +201,10 @@ VStack {
             .font(.headline)
             .frame(height: 40)
             .frame(maxWidth: .infinity)
+            .foregroundColor(.white)
     }
-    .background(Color.red)
+    .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+    .buttonStyle(.plain)
     .foregroundColor(.red)
     .cornerRadius(8)
     .padding(.top, 20)

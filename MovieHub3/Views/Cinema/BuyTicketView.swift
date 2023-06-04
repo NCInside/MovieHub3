@@ -142,10 +142,12 @@ struct BuyTicketView: View {
                 Spacer()
                 
                 Button(action: {
-                    var numberOfTickets = Int(ticketAmount) ?? 0
-                    var price: Double = Double(ticketAmount)! * 25000
-                    ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
-                    isTicketConfirmed = true
+                    if Int(ticketAmount) != nil , !datetime.isEmpty {
+                        var numberOfTickets = Int(ticketAmount) ?? 0
+                        var price: Double = Double(ticketAmount)! * 25000
+                        ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
+                        isTicketConfirmed = true
+                    }
                 }) {
                     Text("Confirm order")
                         .font(.headline)
@@ -167,6 +169,7 @@ struct BuyTicketView: View {
                         label: {
                             EmptyView()
                         })
+                    .disabled(Int(ticketAmount) == nil  || datetime.isEmpty)
                     .hidden()
                 )
             }
@@ -293,17 +296,20 @@ VStack {
     .background(Color.black)
     
     Button(action: {
-        var numberOfTickets = Int(ticketAmount) ?? 0
-        var price: Double = Double(ticketAmount)! * 25000
-        ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
-        isTicketConfirmed = true
+        if Int(ticketAmount) != nil , !datetime.isEmpty {
+            var numberOfTickets = Int(ticketAmount) ?? 0
+            var price: Double = Double(ticketAmount)! * 25000
+            ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
+            isTicketConfirmed = true
+        }
     }) {
         Text("Confirm order")
             .font(.headline)
             .frame(height: 40)
             .frame(maxWidth: .infinity)
     }
-    .background(Color.red)
+    .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+    .buttonStyle(.plain)
     .cornerRadius(8)
     .background(
         NavigationLink(
@@ -317,6 +323,7 @@ VStack {
             label: {
                 EmptyView()
             })
+        .disabled(Int(ticketAmount) == nil  || datetime.isEmpty)
         .hidden()
     ).padding()
 }

@@ -40,16 +40,17 @@ struct MenuListView: View {
             ForEach(menus) { menu in
                 NavigationLink (destination: menu.destination()){
                     Text(menu.title)
-                        .font(.headline)
+//                        .font(.subheadline)
                         .frame(height: 20)
                         .frame(maxWidth: .infinity)
                 }
-                #if !os(iOS)
+//                #if !os(iOS)
                 .padding(.vertical, 8)
-                #endif
+//                #endif
                 .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                 .cornerRadius(10)
                 .buttonStyle(.plain)
+                .foregroundColor(Color.white)
             }
             Spacer()
         }
