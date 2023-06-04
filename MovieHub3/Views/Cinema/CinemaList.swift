@@ -23,33 +23,41 @@ struct CinemaList: View {
     
     
     var body: some View {
-        
-            NavigationStack {
-                    #if os(macOS)
-                        Text("Theaters")
-                            .padding(.top, 30)
-                            .font(.system(size: 50, weight: .heavy, design: .default))
-                    #endif
-                    ScrollView{
-                        ForEach(viewModel.theaters) { theater in
-                            NavigationLink {
-                                CinemaDetail(cinema: theater)
-                            } label: {
-                                CinemaRow(cinema: theater)
+            GeometryReader{ geo in
+                NavigationStack {
+                        #if os(macOS)
+                            Text("Theaters")
+                        .padding(.top, geo.size.height/20)
+                                .font(.system(size: geo.size.width/30, weight: .heavy, design: .default))
+                        #endif
+                        ScrollView{
+                            ForEach(viewModel.theaters) { theater in
+                                NavigationLink {
+                                    #if os(macOS)
+                                    CinemaDetail(cinema: theater,size: geo.size.width)
+                                    #endif
+                                    #if os(iOS)
+                                    CinemaDetail(cinema: theater)
+                                    #endif
+                                } label: {
+                                    CinemaRow(cinema: theater, size: geo.size.width*13/15)
+                                        .padding(.trailing, geo.size.width/15)
+                                        .padding(.leading, geo.size.width/15)
+                                }
+                                .tag(theater)
+                                .buttonStyle(.plain)
                             }
-                            .tag(theater)
-                            .buttonStyle(.plain)
+                            .padding()
                         }
-                        .padding()
-                    }
-                    .background(.black)
-                    .navigationTitle("Theatre")
-                
+                        .background(.black)
+                        .navigationTitle("Theatre")
+                    
+                }
+                #if os(iOS)
+                .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for Theatres")
+                #endif
+                .accentColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0)).background(.black)
             }
-            #if os(iOS)
-            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for Theatres")
-            #endif
-            .accentColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0)).background(.black)
         }
     }
 

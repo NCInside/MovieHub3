@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct CinemaMovieCard: View {
+    var size:CGFloat
     var movie: Movie
     var showtime: (theater: Theater, movietimes: [MovieTime])!
 
     @StateObject private var viewModel: CinemaMovieViewModel
     var theaterid: Int
 
-    init(movie: Movie, theaterid: Int){
+    init(movie: Movie, theaterid: Int, size:CGFloat){
+        self.size = size
         self.movie = movie
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
         self.theaterid = theaterid
@@ -25,7 +27,7 @@ struct CinemaMovieCard: View {
         VStack(alignment: .center) {
             movie.image
                 .resizable()
-                .frame(width: 170, height: 270)
+                .frame(width: size/5, height: size/4)
             HStack(spacing: 3) {
                 ForEach (0..<(Int(movie.score)+1), id: \.self) {_ in
                     Image(systemName: "star.fill")
@@ -38,11 +40,11 @@ struct CinemaMovieCard: View {
             }
 
             Text(movie.title)
-                .font(.system(size: 18, weight: .heavy, design: .default))
+                .font(.system(size: size/28, weight: .heavy, design: .default))
                 .foregroundColor(.white)
                 .padding(.top, 5)
             Text("\(movie.genres[0]) | \(movie.duration / 60)h \(movie.duration % 60)m | \(movie.rating)")
-                .font(.system(size: 14, weight: .medium, design: .default))
+                .font(.system(size: size/30, weight: .medium, design: .default))
                 .foregroundColor(.gray)
                 .padding(.top, 1)
             
@@ -53,16 +55,18 @@ struct CinemaMovieCard: View {
                         HStack {
                             Capsule()
                                 .fill(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                                .frame(width: 60, height: 30)
+                                .frame(width: size/13, height: size/26)
                                 .overlay(
                                     Text(time.date.prefix(5))
+                                        .font(.system(size: size/45, weight: .medium, design: .default))
                                 )
                             ForEach(time.hours, id: \.self) {hour in
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0), lineWidth: 2)
-                                    .frame(width: 60, height: 30)
+                                    .frame(width: size/13, height: size/26)
                                     .overlay(
                                         Text(hour)
+                                            .font(.system(size: size/45, weight: .medium, design: .default))
                                             .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
                                     )
                             }
@@ -81,7 +85,7 @@ struct CinemaMovieCard_Previews: PreviewProvider {
     static var movies = ModelData().movies
 
     static var previews: some View {
-        CinemaMovieCard(movie: movies[0], theaterid: 2)
+        CinemaMovieCard(movie: movies[0], theaterid: 2, size: 100.0)
 
     }
 }

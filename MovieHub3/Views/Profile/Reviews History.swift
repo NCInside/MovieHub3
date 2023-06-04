@@ -8,47 +8,42 @@ import SwiftUI
 
 struct Reviews_History: View {
     @EnvironmentObject private var userController: UserController
-    
+
     var body: some View {
-        #if os(iOS)
-        NavigationView {
-            ZStack {
-                Color.black
-                    .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("My Reviews")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.top, 150)
                 
-                VStack(spacing: 20) {
-                    Text("My Reviews")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding(.top, 20)
-                    
-                    if userController.reviews.isEmpty {
-                        Text("No reviews found.")
-                            .foregroundColor(.gray)
-                    } else {
-                        List(userController.reviews, id: \.id) { review in
-                            if review.user == "User" {
-                                ReviewsRow(review: review)
-                                    .environmentObject(userController)
-                                    .padding(.vertical, 8)
+                if userController.reviews.isEmpty {
+                    Spacer()
+                    Text("No reviews found.")
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                    Spacer()
+                } else {
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(userController.reviews, id: \.id) { review in
+                                if review.user == "You" {
+                                    ReviewsRow(review: review)
+                                        .environmentObject(userController)
+                                        .padding(.horizontal, 10)
+                                }
                             }
                         }
-                        .listStyle(PlainListStyle())
                     }
                 }
-                .padding(.horizontal)
-                .background(Color.black)
             }
-            .navigationBarHidden(true)
-        }
-        .background(Color.black)
-        .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear {
-            userController.fetchAllReviews()
-        }
-        #endif
+            .background(Color.black)
+            .edgesIgnoringSafeArea(.all)
+            .onAppear {
+                userController.fetchAllReviews()
+            }
+        
     }
-    
 }
 
 struct ReviewsRow: View {
@@ -59,66 +54,71 @@ struct ReviewsRow: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .bottom) {
-                if let user = review.user {
-                    Image("profilepic")
+            VStack(alignment: .leading) {
+                HStack {
+                    Image("You")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
-                        .frame(width: 75)
-                } else {
-                    Image(systemName: "person")
-                        .resizable()
+                        .frame(width: 60, height: 60)
+
+                    Text(userController.user.name)
+                        .font(.title3)
+                        .fontWeight(.medium)
                         .foregroundColor(.white)
-                        .font(.system(size: 32))
-                        .frame(width: 75)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text(userController.user.name)
-                    .foregroundColor(.white)
-                    .font(.system(size: 24, weight: .medium))
-                    .lineLimit(1)
-            }
-            .frame(maxWidth: .infinity)
-            .background(Color.black)
-            
-            Text(model.movies[Int(review.movieID)].title)
-                .foregroundColor(.gray)
-                .font(.system(size: 15))
-                .multilineTextAlignment(.leading)
-                .lineLimit(isExpanded ? nil : 5)
-                .padding()
-            
-            HStack(alignment: .bottom, spacing: 1) {
-                ForEach(0..<Int(review.score)) { _ in
-                    Image(systemName: "star.fill")
-                        .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                }
-                ForEach(0..<Int(5 - review.score)) { _ in
-                    Image(systemName: "star")
-                        .foregroundColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .background(Color.black)
-            
-            Button(action: {
-                isExpanded.toggle()
-            }) {
-                Text(review.comment ?? "")
-                    .foregroundColor(.white)
-                    .font(.system(size: 15))
+                Text(model.movies[Int(review.movieID)].title)
+                    .font(.headline)
+                    .foregroundColor(.gray)
                     .multilineTextAlignment(.leading)
-                    .lineLimit(isExpanded ? nil : 5)
-                    .padding()
+                    .lineLimit(isExpanded ? nil : 1)
+                
+                HStack {
+                    ForEach(0..<Int(review.score)) { _ in
+                        Image(systemName: "star.fill")
+                            .foregroundColor(Color.red)
+                    }
+                    ForEach(0..<Int(5 - review.score)) { _ in
+                        Image(systemName: "star")
+                            .foregroundColor(Color.red)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Button(action: {
+                    isExpanded.toggle()
+                }) {
+                    Text(review.comment ?? "")
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(isExpanded ? nil : 3)
+                        .padding(.top)
+                    
+                }
             }
+            .padding()
+            .frame(minWidth: 300, maxWidth: .infinity)
         }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.white, lineWidth: 1)
-        )
         .background(Color.black)
+        .cornerRadius(15)
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(Color.white)
+        )
+        .padding(.vertical)
+    }
+}
+
+
+struct Reviews_History_Previews: PreviewProvider {
+    static var previews: some View {
+        let userController = UserController()
+        
+        return Reviews_History()
+            .environmentObject(userController)
     }
 }
 

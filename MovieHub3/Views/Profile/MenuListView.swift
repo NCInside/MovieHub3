@@ -19,6 +19,11 @@ struct Menu: Identifiable {
 }
 
 struct MenuListView: View {
+    var size: CGFloat
+    init(size: CGFloat) {
+        self.size = size
+    }
+    
     @EnvironmentObject var userController: UserController
     
     var menus: [Menu] {
@@ -33,16 +38,19 @@ struct MenuListView: View {
     var body: some View {
         VStack {
             ForEach(menus) { menu in
-                NavigationLink(destination: menu.destination()) {
+                NavigationLink (destination: menu.destination()){
                     Text(menu.title)
-                        .padding(.vertical, 7)
-                        .foregroundColor(.white)
+//                        .font(.subheadline)
+                        .frame(height: 20)
                         .frame(maxWidth: .infinity)
-                        .background(Color.red)
-                        .cornerRadius(10)
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 15)
                 }
+//                #if !os(iOS)
+                .padding(.vertical, 8)
+//                #endif
+                .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
+                .cornerRadius(10)
+                .buttonStyle(.plain)
+                .foregroundColor(Color.white)
             }
             Spacer()
         }
