@@ -17,17 +17,20 @@ struct TicketConfirmationView: View {
     var showtime: (theater: Theater, movietimes: [MovieTime])!
     @StateObject private var viewModel: CinemaMovieViewModel
     var theaterid: Int
+    @Binding var isConfirmed: Bool
     @Environment(\.presentationMode) var presentationMode
     @Binding var datetime: String
     @Binding var ticketAmount:String
 
-    init(movie: Movie, theaterid: Int, datetime: Binding<String>, ticketAmount: Binding<String>){
+    init(movie: Movie, theaterid: Int, datetime: Binding<String>, ticketAmount: Binding<String>, isConfirmed: Binding<Bool>){
         _datetime = datetime
         _ticketAmount = ticketAmount
         self.movie = movie
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
         self.theaterid = theaterid
+        _isConfirmed = isConfirmed
         self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
+        
         
     }
     
@@ -35,7 +38,13 @@ struct TicketConfirmationView: View {
 #if os(iOS)
         VStack{
             VStack{
+                           Text("Ticket Bought!")
+                               .foregroundColor(.white)
+                               .font(.title)
+                               .bold()
+                               .padding(.top)
                 HStack{
+                   
                     movie.image
                         .resizable()
                         .frame(width: 120, height: 200)
@@ -193,7 +202,9 @@ VStack {
     
     
     Button(action: {
-        presentationMode.wrappedValue.dismiss()
+        withAnimation(.none) {
+            presentationMode.wrappedValue.dismiss()
+        }
     }) {
         Text("Done")
             .font(.headline)
@@ -221,10 +232,10 @@ VStack {
 }
 
 
-struct TicketConfirmationView_Previews: PreviewProvider {
-    static var movies = ModelData().movies
-
-    static var previews: some View {
-        TicketConfirmationView(movie: movies[0], theaterid: 2, datetime: .constant("true"), ticketAmount: .constant("2"))
-    }
-}
+//struct TicketConfirmationView_Previews: PreviewProvider {
+//    static var movies = ModelData().movies
+//
+//    static var previews: some View {
+//        TicketConfirmationView(movie: movies[0], theaterid: 2, datetime: .constant("true"), ticketAmount: .constant("2"))
+//    }
+//}

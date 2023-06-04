@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CinemaList: View {
-    
+    @State var isConfirmed: Bool = false
     @StateObject private var viewModel = CinemaListViewModel()
     
     init() {
@@ -34,10 +34,10 @@ struct CinemaList: View {
                             ForEach(viewModel.theaters) { theater in
                                 NavigationLink {
                                     #if os(macOS)
-                                    CinemaDetail(cinema: theater,size: geo.size.width)
+                                    CinemaDetail(cinema: theater,size: geo.size.width, isConfirmed: $isConfirmed)
                                     #endif
                                     #if os(iOS)
-                                    CinemaDetail(cinema: theater)
+                                    CinemaDetail(cinema: theater, isConfirmed: $isConfirmed)
                                     #endif
                                 } label: {
                                     CinemaRow(cinema: theater, size: geo.size.width*13/15)
@@ -54,6 +54,7 @@ struct CinemaList: View {
                         .navigationTitle("Theatre")
                     
                 }
+                
                 #if os(iOS)
                 .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for Theatres")
                 #endif

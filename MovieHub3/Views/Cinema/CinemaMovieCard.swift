@@ -10,7 +10,7 @@ import SwiftUI
 struct CinemaMovieCard: View {
     var size:CGFloat
     var movie: Movie
-    var showtime: (theater: Theater, movietimes: [MovieTime])!
+//    var showtime: (theater: Theater, movietimes: [MovieTime])!
 
     @StateObject private var viewModel: CinemaMovieViewModel
     var theaterid: Int
@@ -20,7 +20,7 @@ struct CinemaMovieCard: View {
         self.movie = movie
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
         self.theaterid = theaterid
-        self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
+//        self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
     }
     
     var body: some View {
@@ -51,7 +51,7 @@ struct CinemaMovieCard: View {
 
             HStack{
                 VStack(alignment: .leading) {
-                    ForEach(showtime.movietimes, id: \.self) {time in
+                    ForEach(viewModel.showtimes, id: \.self) {time in
                         HStack {
                             Capsule()
                                 .fill(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))

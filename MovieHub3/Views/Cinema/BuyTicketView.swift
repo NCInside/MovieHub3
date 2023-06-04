@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BuyTicketView: View {
     var size: CGFloat
+    @Environment(\.presentationMode) var presentationMode
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -21,16 +22,18 @@ struct BuyTicketView: View {
     @StateObject private var viewModel: CinemaMovieViewModel
     @State private var theaterid: Int
     @State private var movie: Movie
-    
+    @Binding var isConfirmed: Bool
     @State var datetime: String = ""
     @State var ticketAmount: String = ""
 
-    init(movie: Movie, theaterid: Int, size: CGFloat) {
+    init(movie: Movie, theaterid: Int, size: CGFloat,isConfirmed: Binding<Bool>) {
+        _isConfirmed = isConfirmed
         self.size = size
         self._movie = State(initialValue: movie)
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
         self._theaterid = State(initialValue: theaterid)
         self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
+        
     }
     
     @StateObject private var ticketViewModel = TicketViewModel()
@@ -148,6 +151,8 @@ struct BuyTicketView: View {
                         ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
                         isTicketConfirmed = true
                     }
+                    
+                        isConfirmed.toggle()
                 }) {
                     Text("Confirm order")
                         .font(.headline)
@@ -163,7 +168,8 @@ struct BuyTicketView: View {
                             movie: movie,
                             theaterid: viewModel.theater.id,
                             datetime: $datetime,
-                            ticketAmount: $ticketAmount
+                            ticketAmount: $ticketAmount,
+                            isConfirmed: $isConfirmed
                         ),
                         isActive: $isTicketConfirmed,
                         label: {
@@ -178,11 +184,16 @@ struct BuyTicketView: View {
             .background(Color.black)
         }
         .onAppear {
-            // Reset the datetime, ticketAmount, theaterid, and movie variables when the view appears
+           
             datetime = ""
             ticketAmount = ""
             theaterid = self.theaterid
             movie = self.movie
+            if isConfirmed {
+                withAnimation(.none) {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                 }
         }
         #endif
 #if os(macOS)
@@ -317,7 +328,8 @@ VStack {
                 movie: movie,
                 theaterid: viewModel.theater.id,
                 datetime: $datetime,
-                ticketAmount: $ticketAmount
+                ticketAmount: $ticketAmount,
+                isConfirmed: $isConfirmed
             ),
             isActive: $isTicketConfirmed,
             label: {
@@ -335,10 +347,10 @@ VStack {
 }
 
 
-struct BuyTicketView_Previews: PreviewProvider {
-    static var movies = ModelData().movies
-
-    static var previews: some View {
-        BuyTicketView(movie: movies[0], theaterid: 2, size: 100.0)
-    }
-}
+//struct BuyTicketView_Previews: PreviewProvider {
+//    static var movies = ModelData().movies
+//
+//    static var previews: some View {
+//        BuyTicketView(movie: movies[0], theaterid: 2, size: 100.0)
+//    }
+//}

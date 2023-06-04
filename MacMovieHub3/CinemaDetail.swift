@@ -11,8 +11,11 @@ struct CinemaDetail: View {
     var size: CGFloat
     var cinema: Theater
     @StateObject private var viewModel: CinemaViewModel
+    @Binding var isConfirmed: Bool
+    @Environment(\.presentationMode) var presentationMode
     
-    init(cinema: Theater, size:CGFloat){
+    init(cinema: Theater, size:CGFloat, isConfirmed: Binding<Bool>){
+        _isConfirmed = isConfirmed
         self.cinema = cinema
         self._viewModel = StateObject(wrappedValue: CinemaViewModel(id: cinema.id))
         self.size = size
@@ -54,7 +57,7 @@ struct CinemaDetail: View {
                 VStack{
                     ForEach(viewModel.listmovies) {movie in
                         NavigationLink {
-                            BuyTicketView(movie: movie, theaterid: cinema.id, size: size)
+                            BuyTicketView(movie: movie, theaterid: cinema.id, size: size,isConfirmed: $isConfirmed)
                         } label: {
                             CinemaMovieCard(movie: movie, theaterid: cinema.id, size: size)
                         }
@@ -66,14 +69,23 @@ struct CinemaDetail: View {
 
             Spacer()
         }
-        
+        .onAppear {
+            if isConfirmed {
+                withAnimation(.none) {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }}
+        .onDisappear(){
+                self.isConfirmed = false
+            
+        }
     }
 }
 
-struct CinemaDetail_Previews: PreviewProvider {
-    static let modelData = ModelData()
-
-    static var previews: some View {
-        CinemaDetail(cinema: modelData.theaters[1], size: 100.0).environmentObject(modelData)
-    }
-}
+//struct CinemaDetail_Previews: PreviewProvider {
+//    static let modelData = ModelData()
+//
+//    static var previews: some View {
+//        CinemaDetail(cinema: modelData.theaters[1], size: 100.0).environmentObject(modelData)
+//    }
+//}

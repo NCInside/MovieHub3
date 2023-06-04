@@ -10,11 +10,14 @@ import MapKit
 struct CinemaDetail: View {
     var cinema: Theater
     @StateObject private var viewModel: CinemaViewModel
+    @Binding var isConfirmed: Bool
+    @Environment(\.presentationMode) var presentationMode
     
-    init(cinema: Theater){
-        self.cinema = cinema
-        self._viewModel = StateObject(wrappedValue: CinemaViewModel(id: cinema.id))
-    }
+    init(cinema: Theater, isConfirmed: Binding<Bool>){
+          self.cinema = cinema
+          _isConfirmed = isConfirmed
+          self._viewModel = StateObject(wrappedValue: CinemaViewModel(id: cinema.id))
+      }
     
     var body: some View {
         GeometryReader{ geo in
@@ -44,7 +47,7 @@ struct CinemaDetail: View {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(viewModel.listmovies) {movie in
                             NavigationLink {
-                                BuyTicketView(movie: movie, theaterid: cinema.id, size: geo.size.width)
+                                BuyTicketView(movie: movie, theaterid: cinema.id, size: geo.size.width, isConfirmed: $isConfirmed)
                             } label: {
                                 CinemaMovieCard(movie: movie, theaterid: cinema.id, size: geo.size.width)
                             }
@@ -56,16 +59,26 @@ struct CinemaDetail: View {
                 }.background(.black)
                     .foregroundColor(.white)
             }
+            .onAppear {
+                if isConfirmed {
+                    withAnimation(.none) {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }}
+            .onDisappear(){
+                    self.isConfirmed = false
+                
+            }
             .accentColor(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
         }
         
     }
 }
 
-struct CinemaDetail_Previews: PreviewProvider {
-    static let modelData = ModelData()
-
-    static var previews: some View {
-        CinemaDetail(cinema: modelData.theaters[1]).environmentObject(modelData)
-    }
-}
+//struct CinemaDetail_Previews: PreviewProvider {
+//    static let modelData = ModelData()
+//
+//    static var previews: some View {
+//        CinemaDetail(cinema: modelData.theaters[1]).environmentObject(modelData)
+//    }
+//}
