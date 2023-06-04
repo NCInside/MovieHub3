@@ -18,6 +18,9 @@ struct ReviewCreate: View {
             Text("Leave a Review")
                 .foregroundColor(.white)
                 .font(.system(size: 28, weight: .heavy, design: .default))
+                #if !os(iOS)
+                .padding(.top, 12)
+                #endif
             TextEditor(text: $viewModel.comment)
                 .scrollContentBackground(.hidden)
                 .foregroundColor(.white)
@@ -35,11 +38,13 @@ struct ReviewCreate: View {
             }
             #if os(iOS)
             .pickerStyle(.wheel)
+            .frame(height: 150)
             #endif
             #if os(macOS)
             .pickerStyle(.automatic)
+            .frame(height: 50)
+            .labelsHidden()
             #endif
-            .frame(height: 150)
             .cornerRadius(8)
             
             Button(action: {
@@ -53,7 +58,7 @@ struct ReviewCreate: View {
                     .frame(maxWidth: .infinity)
             }
             .background(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
-            .foregroundColor(.red)
+            .foregroundColor(.white)
             .cornerRadius(8)
             .buttonStyle(.plain)
 
