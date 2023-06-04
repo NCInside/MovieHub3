@@ -48,6 +48,7 @@ struct CinemaList: View {
                                 .buttonStyle(.plain)
                             }
                             .padding()
+                            .searchable(text: $viewModel.searchText, placement: .toolbar, prompt: "Search for Theatres")
                         }
                         .background(.black)
                         .navigationTitle("Theatre")

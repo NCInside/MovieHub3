@@ -53,7 +53,7 @@ struct CinemaRow: View {
                     HStack{
                         Image(systemName: "chevron.right")
                             .resizable()
-                            .frame(width: size/20, height: size/20)
+                            .frame(width: size/30, height: size/20)
                             .foregroundColor(Color.red)
                     }
                 }
