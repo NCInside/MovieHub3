@@ -69,8 +69,7 @@ struct TicketConfirmationView: View {
             
             HStack{
                 Spacer()
-                Text("Total payment")
-                Spacer()
+                Text("Total payment: Rp")
                 Text("\(viewModel.counttotal(ticketAmount))")
                 Spacer()
             }.foregroundColor(.white)
@@ -160,8 +159,7 @@ VStack {
     
     HStack {
         Spacer()
-        Text("Total payment")
-        Spacer()
+        Text("Total payment: Rp")
         Text("\(viewModel.counttotal(ticketAmount))")
         Spacer()
     }
