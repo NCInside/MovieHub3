@@ -50,13 +50,13 @@ struct TicketRowView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text((modelData.movies[Int(ticket.movieID)].title))
-                    .font(.headline)
+                    .font(.title)
                     .foregroundColor(.white)
                 Text("Theater: \(modelData.theaters[Int(ticket.theatreID)].name)")
-                    .font(.subheadline)
+                    .font(.headline)
                     .foregroundColor(.red)
                 Text("Showtime: \(ticket.time ?? "aa")")
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundColor(.white)
                 Text("Number of Tickets: \(ticket.numberOfTickets)")
                     .font(.subheadline)
