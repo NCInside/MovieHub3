@@ -17,7 +17,7 @@ struct BuyTicketView: View {
     ]
     
 //    var movie: Movie
-    var showtime: (theater: Theater, movietimes: [MovieTime])!
+//    var showtime: (theater: Theater, movietimes: [MovieTime])
 
     @StateObject private var viewModel: CinemaMovieViewModel
     @State private var theaterid: Int
@@ -32,7 +32,7 @@ struct BuyTicketView: View {
         self._movie = State(initialValue: movie)
         self._viewModel = StateObject(wrappedValue: CinemaMovieViewModel(idmovietheater: movie.id, theaterid: theaterid))
         self._theaterid = State(initialValue: theaterid)
-        self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
+//        self.showtime = (theater: viewModel.theater, movietimes: viewModel.showtimes)
         
     }
     
@@ -85,7 +85,7 @@ struct BuyTicketView: View {
                         Text("Showtime: ")
                         
                         VStack(alignment: .leading) {
-                            ForEach(showtime.movietimes, id: \.self) { time in
+                            ForEach(viewModel.showtimes, id: \.self) { time in
                                 VStack {
                                     HStack {
                                         Capsule()
@@ -150,9 +150,10 @@ struct BuyTicketView: View {
                         var price: Double = Double(ticketAmount)! * 25000
                         ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
                         isTicketConfirmed = true
+                        isConfirmed.toggle()
                     }
                     
-                        isConfirmed.toggle()
+                        
                 }) {
                     Text("Confirm order")
                         .font(.headline)
@@ -197,6 +198,7 @@ struct BuyTicketView: View {
         }
         #endif
 #if os(macOS)
+        
 VStack {
     Spacer()
     
@@ -267,7 +269,7 @@ VStack {
                             .font(.system(size: size/90, weight: .medium, design: .default))
                         
                         VStack(alignment: .leading) {
-                            ForEach(showtime.movietimes, id: \.self) {time in
+                            ForEach(viewModel.showtimes, id: \.self) {time in
                                 HStack {
                                     Capsule()
                                         .fill(Color(red: 217/255.0, green: 37/255.0, blue: 29/255.0))
@@ -312,7 +314,9 @@ VStack {
             var price: Double = Double(ticketAmount)! * 25000
             ticketViewModel.buyTicket(movie: movie, theaterID: viewModel.theater.id, time: datetime, numberOfTickets: numberOfTickets, price: price)
             isTicketConfirmed = true
+            isConfirmed.toggle()
         }
+        
     }) {
         Text("Confirm order")
             .font(.headline)
@@ -338,6 +342,17 @@ VStack {
         .disabled(Int(ticketAmount) == nil  || datetime.isEmpty)
         .hidden()
     ).padding()
+} .onAppear {
+    
+    datetime = ""
+    ticketAmount = ""
+    theaterid = self.theaterid
+    movie = self.movie
+    if isConfirmed {
+        withAnimation(.none) {
+            presentationMode.wrappedValue.dismiss()
+        }
+         }
 }
 #endif
 
