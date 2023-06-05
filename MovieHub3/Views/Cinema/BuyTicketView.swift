@@ -11,11 +11,11 @@ struct BuyTicketView: View {
     var size: CGFloat
     @Environment(\.presentationMode) var presentationMode
     
-    private let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
+//    private let columns: [GridItem] = [
+//        GridItem(.flexible()),
+//        GridItem(.flexible())
+//    ]
+//    
 //    var movie: Movie
 //    var showtime: (theater: Theater, movietimes: [MovieTime])
 

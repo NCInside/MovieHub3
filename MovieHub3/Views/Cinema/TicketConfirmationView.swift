@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TicketConfirmationView: View {
-    private let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+//    private let columns: [GridItem] = [
+//        GridItem(.flexible()),
+//        GridItem(.flexible())
+//    ]
         
     var movie: Movie
     var showtime: (theater: Theater, movietimes: [MovieTime])!
