@@ -12,6 +12,7 @@ struct CinemaDetail: View {
     @StateObject private var viewModel: CinemaViewModel
     @Binding var isConfirmed: Bool
     @Environment(\.presentationMode) var presentationMode
+    private let columns = [GridItem(.adaptive(minimum: 400))]
     
     init(cinema: Theater, isConfirmed: Binding<Bool>){
           self.cinema = cinema
@@ -45,14 +46,16 @@ struct CinemaDetail: View {
                         .frame(height: 4)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        ForEach(viewModel.listmovies) {movie in
-                            NavigationLink {
-                                BuyTicketView(movie: movie, theaterid: cinema.id, size: geo.size.width, isConfirmed: $isConfirmed)
-                            } label: {
-                                CinemaMovieCard(movie: movie, theaterid: cinema.id, size: geo.size.width)
+                        LazyVGrid(columns: columns) {
+                            ForEach(viewModel.listmovies) {movie in
+                                NavigationLink {
+                                    BuyTicketView(movie: movie, theaterid: cinema.id, size: geo.size.width, isConfirmed: $isConfirmed)
+                                } label: {
+                                    CinemaMovieCard(movie: movie, theaterid: cinema.id, size: geo.size.width)
+                                }
+                                .tag(movie)
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .tag(movie)
-                            .buttonStyle(PlainButtonStyle())
                         }
                     }
 
